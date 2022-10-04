@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn{
+  background-color: black;
+  color: aliceblue;
+}
+.btn:hover{
+  cursor: pointer;
+}
