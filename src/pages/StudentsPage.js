@@ -1,9 +1,9 @@
-import Students from "./Students";
-import AddStudent from "./AddStudent";
+import Students from "../components/Students";
+import AddStudent from "../components/AddStudent";
 import { useState } from "react";
-import { Button } from "@mui/material";
 
-const Body = (props) => {
+
+const StudentsPage = (props) => {
     const [student_list, setStudents] = useState(
         [
             {
@@ -64,9 +64,8 @@ const Body = (props) => {
                 :
                     <h1>No students to show!</h1>
             }
-            <Button></Button>
         </div>        
     );
 }
 
-export default Body;
+export default StudentsPage;
