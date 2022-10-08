@@ -20,6 +20,7 @@ import './../style/Navbar.css'
 
 export default function Navbar(props) {  
   const pages = props.pages.map(page => page.name);  
+  const userMenues = props.userMenues.map(um => um.name);  
   const onChangeNav = props.onChangeNav;  
   
   const navTitle = "Hadida Academy";
@@ -222,7 +223,26 @@ export default function Navbar(props) {
                   }}
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
-                >                
+                >         
+                  {userMenues.map((page) => (
+                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                      <Box sx={{ ml:'auto' }}>
+                      <Typography textAlign="center">
+                        
+                          <Link 
+                            
+                            style={{ textDecoration: 'none'}}
+                            component={RouterLink} 
+                            to={"/" + page} 
+                            onClick={()=>onChangeNav(page)}
+                            >
+                              {page}
+                          </Link>                                           
+                      </Typography>
+                      </Box>                       
+                    </MenuItem>
+                    ))}
+
                 </Menu>
               </Box>
               
