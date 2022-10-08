@@ -14,11 +14,12 @@ class Page {
     this.component = component;
   }
 }
-let defaultPage = new Page("Home", <Home></Home>);
-let navPages = [
+let defaultPage = new Page("דף הבית", <Home></Home>);
+let navPages = [  
   defaultPage,
-  new Page("About", <About></About>),  
-  new Page("Students", <Students></Students>)
+  new Page("אודות", <About></About>),    
+  new Page("תלמידים", <Students></Students>),
+  
 ];
 // app component handle
 class App extends Component {
