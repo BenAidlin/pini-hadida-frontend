@@ -1,7 +1,13 @@
+import { Button } from "@mui/material";
+
 const Logout = () => {
     return (
         <div>
-            <h3>Logout</h3>
+            <Button
+                onClick={()=>{
+                    
+                }}
+            >Log out</Button>
         </div>
     );    
 }

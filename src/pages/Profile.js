@@ -1,7 +1,8 @@
-const Profile = () => {
+const Profile = (props) => {
+    const userToken = props.userToken;
     return (
         <div>
-            <h3>Profile</h3>
+            <h3>{userToken}</h3>
         </div>
     );    
 }

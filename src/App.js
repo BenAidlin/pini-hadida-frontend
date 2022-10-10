@@ -1,13 +1,10 @@
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Students from './pages/StudentsPage';
 import About from './pages/About';
 import Home from './pages/Home';
-import Logout from './pages/Logout';
 import Profile from './pages/Profile';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
 
 // optional pages handle
 class Page {
@@ -16,50 +13,61 @@ class Page {
     this.component = component;
   }
 }
-let defaultPage = new Page("דף הבית", <Home></Home>);
-let navPages = [  
-  defaultPage,
-  new Page("אודות", <About></About>),    
-  new Page("תלמידים", <Students></Students>),
-  
-];
-let userMenues = [
-  new Page("הרשמה", <Signup></Signup>),
-  new Page("התחברות", <Login></Login>),
-  new Page("פרופיל", <Profile></Profile>),
-  new Page("התנתקות", <Logout></Logout>)
-]
 // app component handle
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      currentPage : "",
-    };
+function App() {  
+  
+  // app states
+  const [currentPage, setCurrentPage] = useState("");
+  const [userToken, setUserToken] = useState(localStorage.getItem('loginData'));
+
+  // pages and redirects
+  let defaultPage = new Page("דף הבית", <Home></Home>);
+  let navPages = [  
+    defaultPage,
+    new Page("אודות", <About></About>),    
+    new Page("תלמידים", <Students></Students>),    
+  ];
+  let userMenues = [
+    // user menu will always have log out option
+    new Page("פרופיל", <Profile userToken={userToken}></Profile>),
+  ]
+  // methods
+  const onNavChange = (gotoPage) => {
+    setCurrentPage(gotoPage);
+  };
+  const onLogin = (userToken) => {
+    setUserToken(userToken);
+    localStorage.setItem('loginData', userToken);
   }
+  const onLogout = () => {
+    setUserToken(null);
+    setCurrentPage('');
+    localStorage.removeItem('loginData');
+  }
+  // jsx
+  return (
+    <div className="App">
+      { /* Top */ }
+      <Navbar pages={navPages} userMenues={userMenues}        
+          onChangeNav={(gotoPage) => onNavChange(gotoPage)} 
+          onLogin = {(userToken) => onLogin(userToken)}
+          onLogout = {() => onLogout()}
+          userToken = {userToken}
+      />
+      
+      { /* Body */ }
+      {
+        // if currentPage is not in the "pages" keys, render default
+        navPages.filter(page => page.name === currentPage).length !== 0 ?             
+          navPages.filter(page => page.name === currentPage)[0].component :
+        userMenues.filter(page => page.name === currentPage).length !== 0 ?
+          userMenues.filter(page => page.name === currentPage)[0].component :
+        defaultPage.component
+      }
 
-  render(){    
-    return (
-      <div className="App">
-        { /* Top */ }
-        <Navbar pages={navPages} userMenues={userMenues}        
-           onChangeNav={(gotoPage) => this.setState({currentPage : gotoPage})} 
-        />
-        
-        { /* Body */ }
-        {
-          // if currentPage is not in the "pages" keys, render default
-          navPages.filter(page => page.name === this.state.currentPage).length != 0 ?             
-            navPages.filter(page => page.name === this.state.currentPage)[0].component :
-          userMenues.filter(page => page.name === this.state.currentPage).length != 0 ?
-            userMenues.filter(page => page.name === this.state.currentPage)[0].component :
-          defaultPage.component
-        }
-
-        { /* Bottom */ }
-      </div>
-    );
-  }    
-}
+      { /* Bottom */ }
+    </div>
+  );
+}    
 
 export default App;
