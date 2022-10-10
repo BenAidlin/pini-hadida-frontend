@@ -68,7 +68,7 @@ export default function Navbar(props) {
   return (
     <Router>
       <ThemeProvider theme={darkTheme}>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               {/* logo in big */}
