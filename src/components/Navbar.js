@@ -185,7 +185,7 @@ export default function Navbar(props) {
                     display: { xs: 'block', md: 'none' },
                   }}
                 >
-                  {pages.map((page) => (
+                  {pages.reverse().map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                       <Box sx={{ ml:'auto' }}>
                       <Typography textAlign="center">
