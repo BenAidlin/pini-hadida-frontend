@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import Students from './pages/StudentsPage';
+import Achievements from './pages/Achievements';
 import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Schedule from './pages/Schedule';
+import Gallery from './pages/Gallery';
 
 // optional pages handle
 class Page {
@@ -25,7 +27,9 @@ function App() {
   let navPages = [  
     defaultPage,
     new Page("אודות", <About></About>),    
-    new Page("תלמידים", <Students></Students>),    
+    new Page("הישגי המועדון", <Achievements></Achievements>),    
+    new Page("מערכת שבועית", <Schedule></Schedule>),
+    new Page("גלריה", <Gallery></Gallery>)
   ];
   let userMenues = [
     // user menu will always have log out option
@@ -48,7 +52,7 @@ function App() {
   return (
     <div className="App">
       { /* Top */ }
-      <Navbar pages={navPages} userMenues={userMenues}        
+      <Navbar className={'navbar'} pages={navPages} userMenues={userMenues}        
           onChangeNav={(gotoPage) => onNavChange(gotoPage)} 
           onLogin = {(userToken) => onLogin(userToken)}
           onLogout = {() => onLogout()}

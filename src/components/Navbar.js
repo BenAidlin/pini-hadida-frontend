@@ -16,7 +16,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Logo from './../extensions/images/logo-nobackground.png'
 import { grey, red } from "@mui/material/colors";
 import './../style/Navbar.css'
-import Login from "../pages/Login";
 import { GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
 
 export default function Navbar(props) {  

@@ -3,18 +3,21 @@
     padding: 0;
     height: 100vh;
     width: 100%;
-    background-color: black;
-    
+    position: relative;
+    background-color: aliceblue;
   }
 
 video{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100vh;
+    object-fit: cover; 
+    position: relative;   
+    
 }
-.below-video{
+.below-video{        
     color:whitesmoke;
     position: relative;
-    background-color: #212121;
+    
+    /*background-color: #212121;*/
     
 }
