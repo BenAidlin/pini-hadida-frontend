@@ -14,8 +14,6 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from './../extensions/images/logo-nobackground.png'
-import { grey, red } from "@mui/material/colors";
-import './../style/Navbar.css'
 import { GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
 
 export default function Navbar(props) {  
@@ -125,14 +123,15 @@ export default function Navbar(props) {
                   <Button
                     key={page}
                     onClick={handleCloseNavMenu}                  
-                    className="navbar-button"
+                    
                   >
                   <Link 
                   component={RouterLink} 
                   to={"/" + page} 
-                  sx={{ color: 'white', display: 'block' }}
+                  sx={{pl:1, pr:1, color: 'white', display: 'block', "&:hover":{backgroundColor:theme.palette.decorative.darkGrey} }}
                   style={{ textDecoration: 'none', fontFamily:'Segoe UI' }} 
-                  onClick={()=>onChangeNav(page)}                  
+                  onClick={()=>onChangeNav(page)}       
+                  className="navbar-button"           
                   >
                     {page}
                   </Link>                  
