@@ -1,8 +1,12 @@
 .schedule{
-    margin-bottom: 10000;   
-    position: relative; 
+    position: relative;
+    width: 90vh;
+    max-height: 50%;
+    width: 80%;
     top: 10vh;
-    background-color: #424242;
-    max-width: 100%;
-    max-height: 100%;
+    margin: auto;
+    
+}
+.classPaper{
+    
 }
