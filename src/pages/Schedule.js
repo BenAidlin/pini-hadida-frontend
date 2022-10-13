@@ -6,14 +6,29 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Paper } from '@mui/material';
 import './../style/Schedule.css'
+import { Link, ThemeProvider, createTheme} from "@mui/material";
+import { grey, brown } from "@mui/material/colors";
 
+const darkTheme = createTheme({
+    palette: {
+      //mode: "dark",
+      primary: {
+        // light: ...
+        main: grey['900']
+        // dark: ...
+      },
+      secondary: {
+        main: brown['200']
+      },
+      decorative:{
+        main: brown['100']
+      }
+    },
+  });
 let items = {
-    2: {'hours': [["יום ראשון", "20:00 - 22:00"],["יום שלישי", "20:00 - 22:00"],["יום חמישי", "20:00 - 22:00"]],
-        'color': 'MintCream'},
-    1: {'hours': [["יום שני", "19:00 - 21:00"],["יום רביעי", "19:00 - 21:00"]],
-        'color': 'MintCream'},
-    0: {'hours': [["יום שישי", "14:00 - 16:00"]],
-        'color': 'MintCream'},
+    2: [["יום ראשון", "20:00 - 22:00"],["יום שלישי", "20:00 - 22:00"],["יום חמישי", "20:00 - 22:00"]],
+    1: [["יום שני", "19:00 - 21:00"],["יום רביעי", "19:00 - 21:00"]],
+    0: [["יום שישי", "14:00 - 16:00"]]
 }
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -26,7 +41,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value===index ? (items[index]['hours'].map(t => 
+      {value===index ? (items[index].map(t => 
         <Box className='classBox' sx={{ display: 'flex',        
         '& > :not(style)': {
           m: 'auto',
@@ -35,7 +50,7 @@ function TabPanel(props) {
           width: '60%',
           height: 128,
         }, }}>
-            <Paper sx={{backgroundColor: items[index]['color']}} className='classPaper' elevation={12}>
+            <Paper sx={{backgroundColor: darkTheme.palette.decorative.main}} className='classPaper' elevation={12}>
                 <Typography variant='h6' sx={{
                     fontFamily:"unset"
                     ,fontWeight: 400,                    
@@ -50,6 +65,7 @@ function TabPanel(props) {
 const tabsStyle = {
     fontFamily:"unset"
     ,fontWeight: 700,
+    color: 'GhostWhite'
 }
 TabPanel.propTypes = {
   children: PropTypes.node,
@@ -64,6 +80,8 @@ function a11yProps(index) {
   };
 }
 
+
+
 const Schedule = () => {
   const [value, setValue] = React.useState(2);
 
@@ -72,10 +90,11 @@ const Schedule = () => {
   };
 
   return (
-    <div style={{height:'100vh', backgroundColor: 'gray'}}>
-        <Box  className='schedule' >
+    <div className='schedule'>
+        <ThemeProvider theme={darkTheme}>
+        <Box  className='scheduleBox' >
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs  value={value} onChange={handleChange} centered variant='fullWidth'>
+                <Tabs textColor="secondary" indicatorColor='secondary' value={value} onChange={handleChange} centered variant='fullWidth'>
                 <Tab sx={tabsStyle} label="mma + מזרון פתוח" {...a11yProps(0)} />
                 <Tab sx={tabsStyle} label="אגרוף תאילנדי" {...a11yProps(1)} />
                 <Tab sx={tabsStyle} label="ג'יוג'יטסו ברזילאי" {...a11yProps(2)} />
@@ -91,6 +110,7 @@ const Schedule = () => {
                 Item Three
             </TabPanel>
         </Box>
+        </ThemeProvider>
     </div>    
   );
 }
