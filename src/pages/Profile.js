@@ -2,7 +2,8 @@ const Profile = (props) => {
     const userToken = props.userToken;
     return (
         <div>
-            <h3>{userToken}</h3>
+            {userToken != "" && userToken != null ?
+             <h1 style={{marginTop: "20vh"}}>Logged in successfully</h1> : <h1 style={{marginTop: "20vh"}}>Not logged in</h1>}
         </div>
     );    
 }

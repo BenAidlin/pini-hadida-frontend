@@ -6,8 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Paper } from '@mui/material';
 import './../style/Schedule.css'
-import { Link, ThemeProvider, createTheme} from "@mui/material";
-import { grey, brown } from "@mui/material/colors";
+import { ThemeProvider} from "@mui/material";
 
 let items = {
     2: [["יום ראשון", "20:00 - 22:00"],["יום שלישי", "20:00 - 22:00"],["יום חמישי", "20:00 - 22:00"]],
@@ -35,7 +34,7 @@ function TabPanel(props) {
           width: '60%',
           height: 128,
         }, }}>
-            <Paper sx={{backgroundColor: theme.palette.decorative.main}} className='classPaper' elevation={12}>
+            <Paper sx={{backgroundColor: theme.palette.decorative.lightBrown}} className='classPaper' elevation={12}>
                 <Typography variant='h6' sx={{
                     fontFamily:"unset"
                     ,fontWeight: 400,                    

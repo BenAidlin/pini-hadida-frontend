@@ -8,6 +8,7 @@ function importAll(r) {
   }
   
 const Gallery = (props) => {
+    const theme = props.theme;
     const images = importAll(require.context('../extensions/images/gallery'))
     const [open, setOpen] = useState(false);
     const [imgInModal, setImageInModal] = useState('');
@@ -15,7 +16,7 @@ const Gallery = (props) => {
     const handleClose = () => setOpen(false);
     
     return (        
-        <div className="gallery" justifyContent='center' onClick={()=>{if(open) handleClose();}}>     
+        <div style={{backgroundColor: theme.palette.decorative.darkGrey}} className="gallery" justifyContent='center' onClick={()=>{if(open) handleClose();}}>     
             <Modal sx={{display:'flex', alignItems:'center', justifyContent:'center'}}
                 open={open}
                 onClose={handleClose}

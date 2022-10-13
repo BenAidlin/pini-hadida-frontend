@@ -9,7 +9,8 @@ import mma from './../extensions/images/mma.jpg'
 import bjj from './../extensions/images/bjj.jpg'
 import muaythai from './../extensions/images/muaythai.jpg'
 import selfdefence from './../extensions/images/selfdefence.webp'
-const Home = () => {
+const Home = (props) => {
+    const theme = props.theme;
     const mmaText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
     const bjjText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
     const muaythaiText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";

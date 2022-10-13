@@ -22,7 +22,8 @@ const darkTheme = createTheme({
       main: brown['200']
     },
     decorative:{
-      main: brown['100']
+      lightBrown: brown['100'],
+      darkGrey: grey['800']
     }
   },
 });
