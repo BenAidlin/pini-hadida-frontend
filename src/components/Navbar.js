@@ -19,7 +19,7 @@ import './../style/Navbar.css'
 import { GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
 
 export default function Navbar(props) {  
-  
+  const theme = props.theme;
   const pages = props.pages.map(page => page.name);  
   const userMenues = props.userMenues.map(um => um.name);  
   const onChangeNav = props.onChangeNav;  
@@ -48,25 +48,11 @@ export default function Navbar(props) {
     setAnchorElUser(null);
   };
   
-  const darkTheme = createTheme({
-    palette: {
-      //mode: "dark",
-      primary: {
-        // light: ...
-        main: grey['900']
-        // dark: ...
-      },
-      secondary:{
-        // light: ...
-        main: red['900'],
-        // dark: ...
-      }
-    },
-  });
+
 
   return (
     <Router>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme}>
         <AppBar position="fixed">
           <Container maxWidth="xl">
             <Toolbar disableGutters>

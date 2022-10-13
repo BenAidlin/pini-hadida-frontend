@@ -7,7 +7,25 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Schedule from './pages/Schedule';
 import Gallery from './pages/Gallery';
+import { createTheme } from "@mui/material";
+import { grey, brown } from '@mui/material/colors';
 
+const darkTheme = createTheme({
+  palette: {
+    //mode: "dark",
+    primary: {
+      // light: ...
+      main: grey['900']
+      // dark: ...
+    },
+    secondary: {
+      main: brown['200']
+    },
+    decorative:{
+      main: brown['100']
+    }
+  },
+});
 // optional pages handle
 class Page {
   constructor(name, component){
@@ -23,17 +41,17 @@ function App() {
   const [userToken, setUserToken] = useState(localStorage.getItem('loginData'));
 
   // pages and redirects
-  let defaultPage = new Page("דף הבית", <Home></Home>);
+  let defaultPage = new Page("דף הבית", <Home theme={darkTheme}></Home>);
   let navPages = [  
     defaultPage,
-    new Page("אודות", <About></About>),    
-    new Page("הישגי המועדון", <Achievements></Achievements>),    
-    new Page("מערכת שבועית", <Schedule></Schedule>),
-    new Page("גלריה", <Gallery></Gallery>)
+    new Page("אודות", <About theme={darkTheme}></About>),    
+    new Page("הישגי המועדון", <Achievements theme={darkTheme}></Achievements>),    
+    new Page("מערכת שבועית", <Schedule theme={darkTheme}></Schedule>),
+    new Page("גלריה", <Gallery theme={darkTheme}></Gallery>)
   ];
   let userMenues = [
     // user menu will always have log out option
-    new Page("פרופיל", <Profile userToken={userToken}></Profile>),
+    new Page("פרופיל", <Profile theme={darkTheme} userToken={userToken}></Profile>),
   ]
   // methods
   const onNavChange = (gotoPage) => {
@@ -52,7 +70,7 @@ function App() {
   return (
     <div className="App">
       { /* Top */ }
-      <Navbar className={'navbar'} pages={navPages} userMenues={userMenues}        
+      <Navbar theme={darkTheme} className={'navbar'} pages={navPages} userMenues={userMenues}        
           onChangeNav={(gotoPage) => onNavChange(gotoPage)} 
           onLogin = {(userToken) => onLogin(userToken)}
           onLogout = {() => onLogout()}
@@ -69,7 +87,7 @@ function App() {
         defaultPage.component
       }
 
-      { /* Bottom */ }
+      { /* Bottom */ }      
     </div>
   );
 }    
