@@ -1,7 +1,7 @@
-//import firstVideo from './../extensions/video/first-vid.mp4';
+// import firstVideo from './../extensions/video/first-vid.mp4';
 import './../style/Home.css'
 import secondVideo from './../extensions/video/second-vid.mp4';
-import { Typography } from '@mui/material';
+import { ThemeProvider, Typography } from '@mui/material';
 
 import { Card, CardActionArea, CardMedia, CardContent } from '@mui/material';
 import {Box} from '@mui/material';
@@ -87,6 +87,7 @@ const Home = (props) => {
     return (
         <div className='main'>
             <video src={secondVideo} autoPlay={true} muted loop/>   
+            <ThemeProvider theme={theme}>
             <div className='below-video'>
                 {/*martial arts for big display */}
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} justifyContent="center">                
@@ -119,6 +120,7 @@ const Home = (props) => {
                     </Card>
                 </Box>
             </div>                     
+            </ThemeProvider>            
         </div>
     );    
 }
