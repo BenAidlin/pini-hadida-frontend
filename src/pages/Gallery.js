@@ -1,9 +1,10 @@
+
 import { useState } from "react";
-import { ImageList, ImageListItem, Modal, Box, Typography } from "@mui/material";
+import { ImageList, ImageListItem, Modal } from "@mui/material";
 import '../style/Gallery.css'
 function importAll(r) {
     let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    r.keys().forEach((item, index) => { images[item.replace('./', '')] = r(item); });
     return images;
   }
   
@@ -23,7 +24,7 @@ const Gallery = (props) => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <img src={imgInModal} onClick={()=>handleClose()}></img>
+                <img alt={'missing img'} src={imgInModal} onClick={()=>handleClose()}></img>
             </Modal>  
 
             <ImageList className="imglist" sx={{margin: 'auto', paddingBottom:20}} gap={10}>

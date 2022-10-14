@@ -1,4 +1,4 @@
-import firstVideo from './../extensions/video/first-vid.mp4';
+//import firstVideo from './../extensions/video/first-vid.mp4';
 import './../style/Home.css'
 import secondVideo from './../extensions/video/second-vid.mp4';
 import { Typography } from '@mui/material';
@@ -10,12 +10,16 @@ import bjj from './../extensions/images/bjj.jpg'
 import muaythai from './../extensions/images/muaythai.jpg'
 import selfdefence from './../extensions/images/selfdefence.webp'
 const Home = (props) => {
+    /* eslint-disable */
     const theme = props.theme;
+    /* eslint-enable */
     const mmaText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
     const bjjText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
     const muaythaiText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
     const selfdefenceText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
+    /* eslint-disable */
     const midText = ".האקדמיה בראשות פיני חדידה מציעה לימוד של מגוון רחב של אומנויות לחימה, הקניית בטחון עצמי, כלים להגנה עצמית, וכמובן כושר ותנועתיות. האקדמיה ממוקמת בדרום הארץ ופועלת בעיר באר שבע"
+    /* eslint-enable */
     const bjjCard = <CardActionArea>
                         <CardMedia
                         component="img"
