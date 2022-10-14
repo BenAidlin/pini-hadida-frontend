@@ -1,8 +1,8 @@
 const Achievements = (props) => {
     return (
-        <div>
-            Achievements
-        </div>        
+        <div style={{position: 'relative'}}>
+            <h1 style={{marginTop: '20vh'}}>Achievements</h1>
+        </div>      
     );
 }
 

@@ -13,9 +13,9 @@ const Home = (props) => {
         <div className='main'>
             <video src={secondVideo} autoPlay={true} muted loop/>   
             <ThemeProvider theme={theme}>
-            <div className='below-video'>
-                <MartialArtsCards></MartialArtsCards>
-            </div>                     
+                <div className='below-video'>
+                    <MartialArtsCards></MartialArtsCards>
+                </div>                     
             </ThemeProvider>            
         </div>
     );    

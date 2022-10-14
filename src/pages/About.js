@@ -1,7 +1,7 @@
 const About = () => {
     return (
-        <div>
-            <h3>About</h3>
+        <div style={{position: 'relative'}}>
+            <h1 style={{marginTop: '20vh'}}>About</h1>
         </div>
     );    
 }
