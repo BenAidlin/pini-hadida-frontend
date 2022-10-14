@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router,  Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { Link, ThemeProvider, } from "@mui/material";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,9 +18,8 @@ import { GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
 
 export default function Navbar(props) {  
   const theme = props.theme;
-  const pages = props.pages.map(page => page.name);  
-  const userMenues = props.userMenues.map(um => um.name);  
-  const onChangeNav = props.onChangeNav;  
+  const pages = props.pages;  
+  const userMenues = props.userMenues;  
   const onLogin = props.onLogin;
   const onLogout = props.onLogout;
   const [userToken, setUserToken] = useState(props.userToken);
@@ -49,7 +48,7 @@ export default function Navbar(props) {
 
 
   return (
-    <Router>
+    
       <ThemeProvider theme={theme}>
         <AppBar position="fixed">
           <Container maxWidth="xl">
@@ -121,19 +120,18 @@ export default function Navbar(props) {
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} justifyContent="flex-end">
                 {pages.reverse().map((page) => (
                   <Button
-                    key={page}
+                    key={page.name}
                     onClick={handleCloseNavMenu}                  
                     
                   >
                   <Link 
                   component={RouterLink} 
-                  to={"/" + page} 
+                  to={page.route} 
                   sx={{pl:1, pr:1, color: 'white', display: 'block', "&:hover":{backgroundColor:theme.palette.decorative.darkGrey} }}
-                  style={{ textDecoration: 'none', fontFamily:'Segoe UI' }} 
-                  onClick={()=>onChangeNav(page)}       
+                  style={{ textDecoration: 'none', fontFamily:'Segoe UI' }}                   
                   className="navbar-button"           
                   >
-                    {page}
+                    {page.name}
                   </Link>                  
                 </Button>
                 ))}
@@ -170,7 +168,7 @@ export default function Navbar(props) {
                   }}
                 >
                   {pages.reverse().map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                       <Box sx={{ ml:'auto' }}>
                       <Typography textAlign="center">
                         
@@ -178,10 +176,9 @@ export default function Navbar(props) {
                             
                             style={{ textDecoration: 'none'}}
                             component={RouterLink} 
-                            to={"/" + page} 
-                            onClick={()=>onChangeNav(page)}
+                            to={page.route}                             
                             >
-                              {page}
+                              {page.name}
                           </Link>                                           
                       </Typography>
                       </Box>                       
@@ -217,7 +214,7 @@ export default function Navbar(props) {
                       onClose={handleCloseUserMenu}
                     >         
                       {userMenues.map((page) => (
-                        <MenuItem key={page} onClick={handleCloseNavMenu}>
+                        <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                           <Box sx={{ ml:'auto' }}>
                           <Typography textAlign="center">
                             
@@ -225,10 +222,9 @@ export default function Navbar(props) {
                                 
                                 style={{ textDecoration: 'none'}}
                                 component={RouterLink} 
-                                to={"/" + page} 
-                                onClick={()=>onChangeNav(page)}
+                                to={page.route}                                 
                                 >
-                                  {page}
+                                  {page.name}
                               </Link>                                           
                           </Typography>
                           </Box>                       
@@ -284,6 +280,6 @@ export default function Navbar(props) {
           </Container>
         </AppBar>        
       </ThemeProvider>
-    </Router>
+
   );
 }

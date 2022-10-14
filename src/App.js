@@ -7,8 +7,9 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Schedule from './pages/Schedule';
 import Gallery from './pages/Gallery';
-import { createTheme } from "@mui/material";
+import { createTheme, } from "@mui/material";
 import { grey, brown } from '@mui/material/colors';
+import { Routes, Route, BrowserRouter as Router, } from 'react-router-dom';
 
 const darkTheme = createTheme({
   palette: {
@@ -29,8 +30,9 @@ const darkTheme = createTheme({
 });
 // optional pages handle
 class Page {
-  constructor(name, component){
+  constructor(name, route, component){
     this.name = name;
+    this.route = route;
     this.component = component;
   }
 }
@@ -38,57 +40,56 @@ class Page {
 function App() {  
   
   // app states
-  const [currentPage, setCurrentPage] = useState("");
   const [userToken, setUserToken] = useState(localStorage.getItem('loginData'));
 
   // pages and redirects
-  let defaultPage = new Page("דף הבית", <Home theme={darkTheme}></Home>);
+  let defaultPage = new Page("דף הבית",process.env.REACT_APP_route_prefix + "/", <Home theme={darkTheme}></Home>);
   let navPages = [  
     defaultPage,
-    new Page("אודות", <About theme={darkTheme}></About>),    
-    new Page("הישגי המועדון", <Achievements theme={darkTheme}></Achievements>),    
-    new Page("מערכת שבועית", <Schedule theme={darkTheme}></Schedule>),
-    new Page("גלריה", <Gallery theme={darkTheme}></Gallery>)
+    new Page("אודות", process.env.REACT_APP_route_prefix + "/About", <About theme={darkTheme}></About>),    
+    new Page("הישגי המועדון", process.env.REACT_APP_route_prefix + "/Academy-Acievements", <Achievements theme={darkTheme}></Achievements>),    
+    new Page("מערכת שבועית", process.env.REACT_APP_route_prefix + "/Schedule", <Schedule theme={darkTheme}></Schedule>),
+    new Page("גלריה", process.env.REACT_APP_route_prefix + "/Gallery", <Gallery theme={darkTheme}></Gallery>)
   ];
   let userMenues = [
     // user menu will always have log out option
-    new Page("פרופיל", <Profile theme={darkTheme} userToken={userToken}></Profile>),
+    new Page("פרופיל", process.env.REACT_APP_route_prefix + "/Profile", <Profile theme={darkTheme} userToken={userToken}></Profile>),
   ]
-  // methods
-  const onNavChange = (gotoPage) => {
-    setCurrentPage(gotoPage);
-  };
+
   const onLogin = (userToken) => {
     setUserToken(userToken);
     localStorage.setItem('loginData', userToken);
   }
   const onLogout = () => {
     setUserToken(null);
-    setCurrentPage('');
     localStorage.removeItem('loginData');
   }
   // jsx
   return (
     <div className="App">
       { /* Top */ }
-      <Navbar theme={darkTheme} className={'navbar'} pages={navPages} userMenues={userMenues}        
-          onChangeNav={(gotoPage) => onNavChange(gotoPage)} 
-          onLogin = {(userToken) => onLogin(userToken)}
-          onLogout = {() => onLogout()}
-          userToken = {userToken}
-      />
-      
-      { /* Body */ }
-      {
-        // if currentPage is not in the "pages" keys, render default
-        navPages.filter(page => page.name === currentPage).length !== 0 ?             
-          navPages.filter(page => page.name === currentPage)[0].component :
-        userMenues.filter(page => page.name === currentPage).length !== 0 ?
-          userMenues.filter(page => page.name === currentPage)[0].component :
-        defaultPage.component
-      }
-
+      <Router>
+        <Navbar theme={darkTheme} className={'navbar'} pages={navPages} userMenues={userMenues}                      
+              onLogin = {(userToken) => onLogin(userToken)}
+              onLogout = {() => onLogout()}
+              userToken = {userToken}
+        />
+        { /* Body */ }
+        <Routes>
+          <Route path='/*' element={defaultPage.component}></Route>                    
+          {            
+            navPages.map(np =>             
+              <Route exact path={np.route} element={np.component}></Route>
+            )
+          }
+          {
+            userMenues.map(np => 
+              <Route exact path={np.route} element={np.component}></Route>
+            )
+          }
+        </Routes>      
       { /* Bottom */ }      
+      </Router>
     </div>
   );
 }    
