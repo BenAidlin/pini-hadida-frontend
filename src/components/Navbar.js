@@ -22,10 +22,9 @@ export default function Navbar(props) {
   const userMenues = props.userMenues;  
   const onLogin = props.onLogin;
   const onLogout = props.onLogout;
-  const [userToken, setUserToken] = useState(props.userToken);
-  
-  const navTitle = "Hadida Academy";
-
+  const showGoogleTooltip = props.showGoogleTooltip;
+  const [userToken, setUserToken] = useState(props.userToken);  
+  const navTitle = "Hadida Academy";  
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -69,7 +68,7 @@ export default function Navbar(props) {
                 variant="h6"
                 noWrap
                 component="a"
-                href="/"
+                href={process.env.REACT_APP_route_prefix}
                 sx={{
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
@@ -99,7 +98,7 @@ export default function Navbar(props) {
                 variant="h5"
                 noWrap
                 component="a"
-                href=""
+                href={process.env.REACT_APP_route_prefix}
                 textAlign='center'
                 justifyContent='flex-end'
                 sx={{
@@ -244,7 +243,7 @@ export default function Navbar(props) {
                     </Menu>
                   </Box>          
                 :// not logged in    (big then small)       
-                <Tooltip title='להרשמה עם חשבון גוגל'>
+                <Tooltip arrow open={showGoogleTooltip} title='להרשמה עם חשבון גוגל'>
                   <div>                                                          
                     <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>                
                       <GoogleOAuthProvider clientId={process.env.REACT_APP_google_client_id}>

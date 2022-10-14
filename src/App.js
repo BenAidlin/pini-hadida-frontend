@@ -45,7 +45,7 @@ function App() {
   
   // app states
   const [userToken, setUserToken] = useState(localStorage.getItem('loginData'));
-
+  const [showGoogleTooltip, setShowGoogleTooltip] = useState(false);
   // pages and redirects
   let defaultPage = new Page("דף הבית",process.env.REACT_APP_route_prefix + "/", <Home theme={darkTheme}></Home>);
   let navPages = [  
@@ -68,15 +68,25 @@ function App() {
     setUserToken(null);
     localStorage.removeItem('loginData');
   }
+  const sleep = ms => new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
+  const onAppScroll = async (e) =>{
+    console.log(e);
+    setShowGoogleTooltip(true);
+    await sleep(1500);
+    setShowGoogleTooltip(false);
+  }
   // jsx
   return (
-    <div className="App">
+    <div className="App" onScroll={async (e)=>await onAppScroll(e)} style={{overflowY: 'auto'}}>
       { /* Top */ }
       <Router>
         <Navbar theme={darkTheme} className={'navbar'} pages={navPages} userMenues={userMenues}                      
               onLogin = {(userToken) => onLogin(userToken)}
               onLogout = {() => onLogout()}
               userToken = {userToken}
+              showGoogleTooltip = {showGoogleTooltip}
         />
         { /* Body */ }
         <Routes>
