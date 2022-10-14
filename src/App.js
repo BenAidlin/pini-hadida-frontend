@@ -27,6 +27,10 @@ const darkTheme = createTheme({
       darkGrey: grey['800']
     }
   },
+  typography: {
+    fontFamily: 'Segoe UI',
+    color: 'white'
+  }
 });
 // optional pages handle
 class Page {

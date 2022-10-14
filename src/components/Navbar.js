@@ -121,16 +121,16 @@ export default function Navbar(props) {
                 {pages.reverse().map((page) => (
                   <Button
                     key={page.name}
-                    onClick={handleCloseNavMenu}                  
-                    
+                    onClick={handleCloseNavMenu}    
+                    sx={{}}                                  
                   >
                   <Link 
-                  component={RouterLink} 
-                  to={page.route} 
-                  sx={{pl:1, pr:1, color: 'white', display: 'block', "&:hover":{backgroundColor:theme.palette.decorative.darkGrey} }}
-                  style={{ textDecoration: 'none', fontFamily:'Segoe UI' }}                   
-                  className="navbar-button"           
-                  >
+                    component={RouterLink} 
+                    to={page.route} 
+                    sx={{pl:1, pr:1, color: theme.typography.color, display: 'block',  "&:hover":{backgroundColor:theme.palette.decorative.darkGrey}}}
+                    style={{ textDecoration: 'none'  }}                   
+                    className="navbar-button"           
+                    >
                     {page.name}
                   </Link>                  
                 </Button>
@@ -138,7 +138,7 @@ export default function Navbar(props) {
               </Box>
               
               {/* hamburger menu in small */}
-              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} justifyContent="flex-end">
+              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} justifyContent="flex-start">
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -167,23 +167,21 @@ export default function Navbar(props) {
                     display: { xs: 'block', md: 'none' },
                   }}
                 >
-                  {pages.reverse().map((page) => (
-                    <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                      <Box sx={{ ml:'auto' }}>
-                      <Typography textAlign="center">
-                        
-                          <Link 
-                            
-                            style={{ textDecoration: 'none'}}
-                            component={RouterLink} 
-                            to={page.route}                             
-                            >
-                              {page.name}
-                          </Link>                                           
-                      </Typography>
-                      </Box>                       
-                    </MenuItem>
-                    ))}
+                  {pages.reverse().map((page) => (                                            
+                    <Link                             
+                      style={{ textDecoration: 'none', backgroundColor:theme.palette.decorative.lightBrown}}                            
+                      component={RouterLink} 
+                      to={page.route}                             
+                      >
+                      <MenuItem sx={{position:'relative'}} key={page.name} onClick={handleCloseNavMenu}>
+                        <Box sx={{ ml:'auto' }}>
+                          <Typography >
+                            {page.name}
+                          </Typography>
+                        </Box>                       
+                      </MenuItem>
+                    </Link>                                                                 
+                  ))}
                 </Menu>
               </Box>
               
@@ -214,34 +212,35 @@ export default function Navbar(props) {
                       onClose={handleCloseUserMenu}
                     >         
                       {userMenues.map((page) => (
-                        <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                          <Box sx={{ ml:'auto' }}>
-                          <Typography textAlign="center">
-                            
-                              <Link 
-                                
-                                style={{ textDecoration: 'none'}}
-                                component={RouterLink} 
-                                to={page.route}                                 
-                                >
-                                  {page.name}
+                                                    
+                              <Link                                 
+                              style={{ textDecoration: 'none'}}
+                              component={RouterLink} 
+                              to={page.route}                                 
+                              >
+                                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                                  <Box sx={{ ml:'auto' }}>
+                                    <Typography textAlign="center">
+                                      {page.name}
+                                    </Typography>
+                                  </Box>                       
+                                </MenuItem>
                               </Link>                                           
-                          </Typography>
-                          </Box>                       
-                        </MenuItem>
+                          
                         ))}
-
+                      <Link                                 
+                              style={{ textDecoration: 'none'}}
+                              component={RouterLink} 
+                              onClick={()=>{onLogout(); setUserToken(null);}}
+                              >
                       <MenuItem key={'התנתקות'} onClick={handleCloseNavMenu}>
                           <Box sx={{ ml:'auto' }}>
-                          <Typography textAlign="center">                        
-                              <Button                             
-                                onClick={()=>{onLogout(); setUserToken(null);}}
-                                >
-                                  התנתקות
-                              </Button>                                           
+                          <Typography textAlign="center">                                                                                                                  
+                                התנתקות                              
                           </Typography>
                           </Box>                       
                         </MenuItem>
+                        </Link>                                           
                     </Menu>
                   </Box>          
                 :// not logged in    (big then small)       
