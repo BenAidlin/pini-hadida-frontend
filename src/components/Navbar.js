@@ -15,19 +15,29 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from './../extensions/images/logo-nobackground.png'
 import { GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Navbar(props) {  
+  // navbar state
   const theme = props.theme;
   const pages = props.pages;  
   const userMenues = props.userMenues;  
   const onLogin = props.onLogin;
   const onLogout = props.onLogout;
   const showGoogleTooltip = props.showGoogleTooltip;
+  const showedGoogleTooltip = props.showedGoogleTooltip;
   const [userToken, setUserToken] = useState(props.userToken);  
   const navTitle = "Hadida Academy";  
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const location = useLocation();
+  
+  // navbar methods
+  useEffect(()=>{
+    // when location changes, update app state so it will show tool tip in scroll
+    showedGoogleTooltip.current = false;
+  }, [location, showedGoogleTooltip])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Achievements from './pages/Achievements';
@@ -9,8 +9,9 @@ import Schedule from './pages/Schedule';
 import Gallery from './pages/Gallery';
 import { createTheme, } from "@mui/material";
 import { grey, brown } from '@mui/material/colors';
-import { Routes, Route, BrowserRouter as Router, } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 
+// app theme
 const darkTheme = createTheme({
   palette: {
     //mode: "dark",
@@ -44,8 +45,12 @@ class Page {
 function App() {  
   
   // app states
-  const [userToken, setUserToken] = useState(localStorage.getItem('loginData'));
+  const [userToken, setUserToken] = useState(localStorage.getItem('loginData'));  
   const [showGoogleTooltip, setShowGoogleTooltip] = useState(false);
+    // navbar updates showedGoogleTooltip on location change
+  const showedGoogleTooltip = useRef(false);
+  
+  
   // pages and redirects
   let defaultPage = new Page("דף הבית",process.env.REACT_APP_route_prefix + "/", <Home theme={darkTheme}></Home>);
   let navPages = [  
@@ -59,7 +64,8 @@ function App() {
     // user menu will always have log out option
     new Page("פרופיל", process.env.REACT_APP_route_prefix + "/Profile", <Profile theme={darkTheme} userToken={userToken}></Profile>),
   ]
-
+  
+  // methods
   const onLogin = (userToken) => {
     setUserToken(userToken);
     localStorage.setItem('loginData', userToken);
@@ -70,13 +76,18 @@ function App() {
   }
   const sleep = ms => new Promise(
     resolve => setTimeout(resolve, ms)
-  );
-  const onAppScroll = async (e) =>{
-    console.log(e);
-    setShowGoogleTooltip(true);
-    await sleep(1500);
-    setShowGoogleTooltip(false);
-  }
+  );    
+  const onAppScroll = async (e) =>{      
+    // every time the app scrolls, if in current page never showed tool tip show it
+    // navbar updates showedGoogleTooltip on location change
+    if (!showedGoogleTooltip.current){
+      setShowGoogleTooltip(true);
+      await sleep(2000);
+      setShowGoogleTooltip(false);
+      showedGoogleTooltip.current = true;
+    }
+  };
+  
   // jsx
   return (
     <div className="App" onScroll={async (e)=>await onAppScroll(e)} style={{overflowY: 'auto'}}>
@@ -87,6 +98,7 @@ function App() {
               onLogout = {() => onLogout()}
               userToken = {userToken}
               showGoogleTooltip = {showGoogleTooltip}
+              showedGoogleTooltip = {showedGoogleTooltip}
         />
         { /* Body */ }
         <Routes>
