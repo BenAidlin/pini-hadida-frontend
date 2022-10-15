@@ -105,12 +105,12 @@ function App() {
           <Route path='/*' element={defaultPage.component}></Route>                    
           {            
             navPages.map(np =>             
-              <Route exact path={np.route} element={np.component}></Route>
+              <Route exact key={np.route} path={np.route} element={np.component}></Route>
             )
           }
           {
             userMenues.map(np => 
-              <Route exact path={np.route} element={np.component}></Route>
+              <Route exact key={np.route} path={np.route} element={np.component}></Route>
             )
           }
         </Routes>      

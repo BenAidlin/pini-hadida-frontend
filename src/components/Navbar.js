@@ -177,7 +177,8 @@ export default function Navbar(props) {
                   }}
                 >
                   {pages.reverse().map((page) => (                                            
-                    <Link                             
+                    <Link             
+                      key={page.route}                
                       style={{ textDecoration: 'none', backgroundColor:theme.palette.decorative.lightBrown}}                            
                       component={RouterLink} 
                       to={page.route}                             
@@ -222,7 +223,8 @@ export default function Navbar(props) {
                     >         
                       {userMenues.map((page) => (
                                                     
-                              <Link                                 
+                              <Link  
+                              key = {page.route}                               
                               style={{ textDecoration: 'none'}}
                               component={RouterLink} 
                               to={page.route}                                 
