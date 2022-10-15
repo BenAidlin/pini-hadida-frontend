@@ -17,7 +17,7 @@ const Gallery = (props) => {
     const handleClose = () => setOpen(false);
     
     return (        
-        <div style={{backgroundColor: theme.palette.decorative.darkGrey}} className="gallery" justifyContent='center' onClick={()=>{if(open) handleClose();}}>     
+        <div style={{backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}} className="gallery" justifyContent='center' onClick={()=>{if(open) handleClose();}}>     
             <Modal sx={{display:'flex', alignItems:'center', justifyContent:'center'}}
                 open={open}
                 onClose={handleClose}
@@ -27,7 +27,7 @@ const Gallery = (props) => {
                 <img alt={'missing img'} src={imgInModal} onClick={()=>handleClose()}></img>
             </Modal>  
 
-            <ImageList className="imglist" sx={{margin: 'auto', paddingBottom:20}} gap={10}>
+            <ImageList className="imglist" sx={{margin: 'auto', paddingBottom:20, }} gap={10}>
             {Object.values(images).map((item) => (
                 <ImageListItem key={item}>
                 <img 
