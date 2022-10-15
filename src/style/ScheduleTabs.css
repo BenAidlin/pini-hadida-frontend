@@ -1,7 +1,3 @@
-.schedule{
-    background-color: #424242;
-    height: 100vh;
-}
 .scheduleBox{
     position: relative;
     width: 90vh;
@@ -9,8 +5,5 @@
     width: 80%;
     top: 10vh;
     margin: auto;
-    
-}
-.classPaper{
     
 }
