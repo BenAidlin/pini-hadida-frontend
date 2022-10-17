@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { ImageList, ImageListItem, Modal } from "@mui/material";
+import { ImageList, Modal } from "@mui/material";
 import '../style/Gallery.css';
 import ImageListItemsFromFolder from './../components/ImageListItemsFromFolder';
 
