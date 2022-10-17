@@ -26,6 +26,7 @@ const Gallery = (props) => {
                 <ImageListItemsFromFolder 
                 context={require.context('../extensions/images/gallery' )}
                 handleImageClick={(item) => handleOpen(item)}
+                imageSx={null}
                 />                
             </ImageList>
         </div>        
