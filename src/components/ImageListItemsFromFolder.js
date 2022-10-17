@@ -7,17 +7,18 @@ function importAll(r) {
 }  
 const ImageListItemsFromFolder = (props) => {    
     const handleImageClick = props.handleImageClick;   
-    const context = props.context;        
-    const images = importAll(context);
+    const context = props.context;    
+    const imageSx = props.imageSx;    
+    const images = importAll(context);    
     return (
         Object.values(images).map((item) => (
-            <ImageListItem key={item}>
+            <ImageListItem key={item} sx={imageSx}>
             <img 
                 src={`${item}`}
                 srcSet={`${item}`}
                 alt={item}
                 loading="lazy"
-                onClick={()=>{handleImageClick(item)}}
+                onClick={()=>{handleImageClick(item)}}                
             />
             </ImageListItem>
         ))
