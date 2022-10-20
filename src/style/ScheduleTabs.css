@@ -1,9 +1,5 @@
-.scheduleBox{
-    position: relative;
-    width: 90vh;
-    max-height: 50%;
-    width: 80%;
-    top: 10vh;
+.scheduleBox{    
+    width: 80%;    
     margin: auto;
-    
+    max-height: 30%;    
 }

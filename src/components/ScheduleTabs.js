@@ -23,10 +23,10 @@ function TabPanel(props) {
         <Box className='classBox' sx={{ display: 'flex',        
         '& > :not(style)': {
           m: 'auto',
-          mb: '2%',
-          mt: '2%',
-          width: '60%',
-          height: 128,
+          mb: '2vh',
+          mt: '2vh',
+          width: '60vh',
+          height: '18vh',
         }, }}>
             <Paper sx={{backgroundColor: theme.palette.decorative.lightBrown}} className='classPaper' elevation={12}>
                 <Typography variant='h6' sx={{
@@ -68,7 +68,7 @@ const ScheduleTabs = (props) => {
     color: theme.typography.color
 }
   return (
-    <div className='schedule' style={{backgroundColor: theme.palette.decorative.darkGrey, height: '100vh'}}>
+    <div style={{backgroundColor: theme.palette.decorative.darkGrey, height: '100vh'}}>
         <ThemeProvider theme={theme}>
         <Box  className='scheduleBox' >
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
