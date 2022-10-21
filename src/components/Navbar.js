@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Link, ThemeProvider, } from "@mui/material";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -53,7 +53,7 @@ export default function Navbar(props) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  
+  const navigate = useNavigate();
 
 
   return (
@@ -64,6 +64,7 @@ export default function Navbar(props) {
             <Toolbar disableGutters>
               {/* logo in big */}
               <Box
+                onClick={()=>navigate(process.env.REACT_APP_route_prefix)}
                 component="img"
                 sx={{          
                   display: { xs: 'none', md: 'flex' }, mr: 1,      
@@ -78,7 +79,7 @@ export default function Navbar(props) {
                 variant="h6"
                 noWrap
                 component="a"
-                href={process.env.REACT_APP_route_prefix}
+                onClick={()=>navigate(process.env.REACT_APP_route_prefix)}
                 sx={{
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
@@ -94,6 +95,7 @@ export default function Navbar(props) {
 
               {/* logo in small */}
               <Box
+                onClick={()=>navigate(process.env.REACT_APP_route_prefix)}
                 component="img"
                 sx={{          
                   display: { xs: 'flex', md: 'none' }, mr: 1,
@@ -108,7 +110,7 @@ export default function Navbar(props) {
                 variant="h5"
                 noWrap
                 component="a"
-                href={process.env.REACT_APP_route_prefix}
+                onClick={()=>navigate(process.env.REACT_APP_route_prefix)}
                 textAlign='center'
                 justifyContent='flex-end'
                 sx={{
