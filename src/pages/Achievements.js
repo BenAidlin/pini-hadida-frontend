@@ -45,7 +45,7 @@ const Achievements = (props) => {
     ]
     
     return (
-        <div style={{paddingTop: '14vh',
+        <div style={{paddingTop: '14vh', minHeight: '86vh',
             backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}}>
             <Modal sx={{display:'flex', alignItems:'center', justifyContent:'center'}}
                 open={open}
