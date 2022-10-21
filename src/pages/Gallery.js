@@ -12,7 +12,7 @@ const Gallery = (props) => {
     const handleClose = () => setOpen(false);
     
     return (        
-        <div style={{minHeight: '100vh',
+        <div style={{paddingTop: '14vh', minHeight: '86vh',
             backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}} 
             justifyContent='center' onClick={()=>{if(open) handleClose();}}>     
             <Modal sx={{display:'flex', alignItems:'center', justifyContent:'center'}}

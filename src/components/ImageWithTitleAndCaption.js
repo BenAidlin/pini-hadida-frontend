@@ -1,6 +1,6 @@
 import {Box, ImageList} from '@mui/material'
 
-function ImageWithTitleAndCaption(props){
+function ImagesWithTitleAndCaption(props){
     const theme = props.theme;
     return (
         <Box sx={{}}>
@@ -15,4 +15,4 @@ function ImageWithTitleAndCaption(props){
     )
 }
 
-export default ImageWithTitleAndCaption;
+export default ImagesWithTitleAndCaption;

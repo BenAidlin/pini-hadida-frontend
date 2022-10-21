@@ -1,4 +1,4 @@
-import { ImageListItem } from "@mui/material";
+import { ImageListItem, Modal } from "@mui/material";
 
 function importAll(r) {
     let images = {};
@@ -21,7 +21,7 @@ const ImageListItemsFromFolder = (props) => {
                 onClick={()=>{handleImageClick(item)}}                
             />
             </ImageListItem>
-        ))
+        ))        
     )
 }
 export default ImageListItemsFromFolder;
