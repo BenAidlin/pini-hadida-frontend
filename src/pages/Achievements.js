@@ -1,10 +1,16 @@
 
 import ImageListItemsFromFolder from '../components/ImageListItemsFromFolder';
 import Item from './../components/ImageWithTitleAndCaption'
+import { useState } from 'react';
+import { Modal } from '@mui/material';
 
 const Achievements = (props) => {
     const imageSx = {marginBottom: '20vh', paddingTop: '-20%'};
     const theme = props.theme;
+    const [open, setOpen] = useState(false);
+    const [imgInModal, setImageInModal] = useState('');
+    const handleOpen = (src) => {setOpen(true); setImageInModal(src);}
+    const handleClose = () => setOpen(false);
     var items = [
         {
             name: "IJJIF European Masters - 30/05/2022",
@@ -12,7 +18,7 @@ const Achievements = (props) => {
             imageListFromFolder: 
             <ImageListItemsFromFolder
                 context={require.context('./../extensions/images/achievements/30-05 jjif erupean masters')}
-                handleImageClick={()=>{}}
+                handleImageClick={(src)=>{handleOpen(src)}}
                 imageSx={imageSx}
             />
         },
@@ -22,7 +28,7 @@ const Achievements = (props) => {
             imageListFromFolder: 
             <ImageListItemsFromFolder
                 context={require.context('./../extensions/images/achievements/16-09 TMS')}
-                handleImageClick={()=>{}}
+                handleImageClick={(src)=>{handleOpen(src)}}
                 imageSx={imageSx}
              />
         },
@@ -32,7 +38,7 @@ const Achievements = (props) => {
             imageListFromFolder: 
             <ImageListItemsFromFolder
                 context={require.context('./../extensions/images/achievements/30-09 ijjl')}
-                handleImageClick={()=>{}}
+                handleImageClick={(src)=>{handleOpen(src)}}
                 imageSx={imageSx}
              />
         }
@@ -41,6 +47,14 @@ const Achievements = (props) => {
     return (
         <div style={{paddingTop: '14vh',
             backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}}>
+            <Modal sx={{display:'flex', alignItems:'center', justifyContent:'center'}}
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <img alt={'missing img'} src={imgInModal} onClick={()=>handleClose()}></img>
+            </Modal> 
                 {
                     items.map( (item, i) => 
                     <Item style={{}} theme={theme} key={i} item={item} /> )
