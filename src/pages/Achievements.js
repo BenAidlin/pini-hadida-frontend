@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Modal } from '@mui/material';
 
 const Achievements = (props) => {
-    const imageSx = {marginBottom: '20vh', paddingTop: '-20%'};
+    const imageSx = {marginBottom: '20vh'};
     const theme = props.theme;
     const [open, setOpen] = useState(false);
     const [imgInModal, setImageInModal] = useState('');

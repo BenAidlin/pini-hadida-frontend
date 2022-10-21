@@ -12,7 +12,9 @@ const Gallery = (props) => {
     const handleClose = () => setOpen(false);
     
     return (        
-        <div style={{backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}} className="gallery" justifyContent='center' onClick={()=>{if(open) handleClose();}}>     
+        <div style={{minHeight: '100vh',
+            backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}} 
+            justifyContent='center' onClick={()=>{if(open) handleClose();}}>     
             <Modal sx={{display:'flex', alignItems:'center', justifyContent:'center'}}
                 open={open}
                 onClose={handleClose}
@@ -22,7 +24,7 @@ const Gallery = (props) => {
                 <img alt={'missing img'} src={imgInModal} onClick={()=>handleClose()}></img>
             </Modal>  
 
-            <ImageList className="imglist" sx={{margin: 'auto', paddingBottom:20, }} gap={10}>
+            <ImageList className="imglist" sx={{margin: 'auto',  }} gap={10}>
                 <ImageListItemsFromFolder 
                 context={require.context('../extensions/images/gallery' )}
                 handleImageClick={(item) => handleOpen(item)}
