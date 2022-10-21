@@ -1,4 +1,4 @@
-import { Avatar, ThemeProvider, Typography, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { Avatar, ThemeProvider, Typography,  } from "@mui/material";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 const About = (props) => {
     const theme = props.theme;
