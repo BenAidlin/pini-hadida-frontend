@@ -1,8 +1,11 @@
 // import firstVideo from './../extensions/video/first-vid.mp4';
 import './../style/Home.css'
 import secondVideo from './../extensions/video/second-vid.mp4';
-import { ThemeProvider, } from '@mui/material';
+import { ThemeProvider,  } from '@mui/material';
 import MartialArtsCards from '../components/MartialArtsCards';
+import About from './About';
+import Schedule from './Schedule';
+import Achievements from './Achievements';
 
 const Home = (props) => {
     /* eslint-disable */
@@ -11,12 +14,15 @@ const Home = (props) => {
     /* eslint-enable */    
     return (
         <div className='main'>
-            <video src={secondVideo} autoPlay={true} muted loop/>   
+            <video src={secondVideo} autoPlay={true} muted loop/>                           
             <ThemeProvider theme={theme}>
-                <div className='below-video'>
+                <div style={{backgroundColor:theme.palette.decorative.darkGrey}} className='below-video'>
                     <MartialArtsCards></MartialArtsCards>
                 </div>                     
-            </ThemeProvider>            
+            </ThemeProvider>  
+            <About theme={theme} ></About> 
+            <Schedule theme={theme}></Schedule>   
+            <Achievements theme={theme}></Achievements>      
         </div>
     );    
 }

@@ -1,6 +1,6 @@
 
 import ImageListItemsFromFolder from '../components/ImageListItemsFromFolder';
-import {  Box } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 const Achievements = (props) => {
     const imageSx = {marginBottom: '20vh'};
@@ -38,6 +38,9 @@ const Achievements = (props) => {
     return (
         <div style={{paddingTop: '14vh', minHeight: '86vh',
             backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}}>
+                <Typography variant="h6" fontFamily={theme.typography.fontFamily}
+                    color={theme.typography.color} fontWeight={'600'} sx={{textDecoration: 'underline'}}
+                >הישגי המועדון</Typography>
                 {
                     items.map( (item, i) => 
                         <Box sx={{}}>

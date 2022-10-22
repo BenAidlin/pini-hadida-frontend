@@ -5,8 +5,11 @@ const About = (props) => {
     const aboutText = "כל מיני מילים שאפשר להגיד על פיני - מקים הג'יוג'יטסו הברזילאי בדרום, שנת הקמת המועדון וכו וכו ועוד כל מיני מילים שאפשר להגיד על המועדון ועל ההישגים של פיני אלוף אירופה וNAGA ואליפות עולם ועוד המשך של עוד מילים שבנוסף אפשר להגיד על פיני והמועדון.";
     const bullets = ["עוסק בגוגיטסו ברזילאי כ 18 שנה מוותיקי הספורט בארץ", "2014 אלוף ארופה חומות מאסטר ibjjf", "ב2016 זכה באליפות עולם לוותיקים של ארגון uww בגראפלינג", "ב2018 סגן אלוף ארופה שחורות מסטרס ibjjf", "ב2018 אלוף נאגה אנגליה מאסטרס "]
     return (
-        <div  style={{paddingTop: '14vh', minHeight: '86vh',
+        <div  style={{paddingTop: '14vh', minHeight: '86vh', paddingBottom: '3vh',
         backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}}>
+            <Typography variant="h6" fontFamily={theme.typography.fontFamily}
+                color={theme.typography.color} fontWeight={'600'} sx={{textDecoration: 'underline'}}
+            >מאמן ראשי - פיני חדידה</Typography>
             <Avatar
                 alt="Pini hadida"
                 src={require("./../extensions/images/about/pinihadida-profile.jpg")}            
