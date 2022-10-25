@@ -2,8 +2,24 @@ import { Avatar, ThemeProvider, Typography,  } from "@mui/material";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 const About = (props) => {
     const theme = props.theme;
-    const aboutText = "כל מיני מילים שאפשר להגיד על פיני - מקים הג'יוג'יטסו הברזילאי בדרום, שנת הקמת המועדון וכו וכו ועוד כל מיני מילים שאפשר להגיד על המועדון ועל ההישגים של פיני אלוף אירופה וNAGA ואליפות עולם ועוד המשך של עוד מילים שבנוסף אפשר להגיד על פיני והמועדון.";
-    const bullets = ["עוסק בגוגיטסו ברזילאי כ 18 שנה מוותיקי הספורט בארץ", "2014 אלוף ארופה חומות מאסטר ibjjf", "ב2016 זכה באליפות עולם לוותיקים של ארגון uww בגראפלינג", "ב2018 סגן אלוף ארופה שחורות מסטרס ibjjf", "ב2018 אלוף נאגה אנגליה מאסטרס "]
+    const aboutText = 
+        <p dir="rtl">
+            בעל תואר שני בחינוך גופני, M.ed<br/>
+            בוגר קורס מאמני ג'וג'יטסו בכירים <br/>
+            בוגר קורס מאמני ג'וג'יטסו <br/>
+            בוגר קורס מאמני MMA <br/>
+            חגורה שחורה דן 3 בג'וג'יטסו ברזילאי <br/>
+            מייסד ספורט הג'וג'יטסו הברזילאי באזור הדרום <br/>
+            בעל האקדמיה הותיקה ביותר לג'וג'יטסו וMMA מזה 22 שנה 
+            באזור הדרום <br/>
+            מתחרה פעיל במשך 20 שנה ללא הפסקה בכול הארגונים  הבנלאומיים  ibjjf  jjif  naga uww  <br/>
+        </p>;
+    const bullets = [
+        <div dir="rtl"> אלוף ארופה לחגורות חומות מאסטר 2 ibjjf 2014</div>,
+        <div dir="rtl">אלוף עולם מסטר בגראפלינג גי ונוגי uww  2016</div>,
+        <div dir="rtl">מדליסט כסף אליפות ארופה מאסטר ibjjf 2018</div>,
+        <div dir="rtl">אלוף ארופה מאסטר jjif  2022</div>
+    ];
     return (
         <div  style={{paddingTop: '14vh', minHeight: '86vh', paddingBottom: '3vh',
         backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}}>
@@ -17,7 +33,7 @@ const About = (props) => {
             >
             </Avatar>
             <ThemeProvider theme={props.theme}>
-                <Typography 
+                <Typography
                 sx={{maxWidth: '80%', margin: 'auto', marginTop: '10vh', color: theme.palette.decorative.lightBrown}}
                 variant='h6'
                 >
