@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+.scrollDownImageDiv{
+  position:absolute;
+  width:100px;
+  max-height:10vh;  
+  z-index:300000;
+  bottom:10px;  
+  margin-left: 75%;
+}
