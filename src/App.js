@@ -7,7 +7,7 @@ import Gallery from './pages/Gallery';
 import { createTheme, } from "@mui/material";
 import { grey, brown } from '@mui/material/colors';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import scrolldown from './extensions/images/scrolldown3trans.png'
+import scrolldown from './extensions/images/scrolldown-gif4.gif'
 
 // app theme
 const darkTheme = createTheme({
