@@ -2,7 +2,7 @@
   text-align: center;
 }
 .scrollDownImageDiv{
-  position:absolute;
+  position:fixed;
   width:100px;
   max-height:10vh;  
   z-index:300000;

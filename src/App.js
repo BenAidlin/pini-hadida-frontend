@@ -8,6 +8,7 @@ import { createTheme, } from "@mui/material";
 import { grey, brown } from '@mui/material/colors';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import scrolldown from './extensions/images/scrolldown-gif4.gif'
+import { useEffect } from 'react';
 
 // app theme
 const darkTheme = createTheme({
@@ -80,7 +81,11 @@ function App() {
   const onAppScroll = async (e) =>{      
     // every time the app scrolls, if in current page never showed tool tip show it
     // navbar updates showedGoogleTooltip on location change
-    setShowScrollArrow(false);
+    console.log(window.scrollY);
+    
+    if(window.scrollY > 100)
+      setShowScrollArrow(false);
+    else setShowScrollArrow(true);
     if (!showedGoogleTooltip.current){
       setShowGoogleTooltip(true);
       await sleep(2000);
@@ -88,10 +93,12 @@ function App() {
       showedGoogleTooltip.current = true;
     }
   };
-  
+  useEffect(()=>{
+    window.addEventListener('scroll', onAppScroll, true);
+  })
   // jsx
   return (
-    <div className="App" onScroll={async (e)=>await onAppScroll(e)} style={{overflowY: 'auto'}}>
+    <div className="App" style={{overflowY: 'visible'}}>
       { /* Top */ }
       <Router>
         <Navbar theme={darkTheme} className={'navbar'} pages={navPages} userMenues={userMenues}                      
@@ -102,7 +109,7 @@ function App() {
               showedGoogleTooltip = {showedGoogleTooltip}
         />
         <div className='scrollDownImageDiv'>
-          <img onClick={()=>{window.scrollBy(0, 100)}}
+          <img 
           style={{display: showScrollArrow ? 'block' : 'none', cursor: 'unset'}} src={scrolldown} alt={"scroll down to see mode"}></img>  
         </div>        
         { /* Body */ }
