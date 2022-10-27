@@ -81,8 +81,6 @@ function App() {
   const onAppScroll = async (e) =>{      
     // every time the app scrolls, if in current page never showed tool tip show it
     // navbar updates showedGoogleTooltip on location change
-    console.log(window.scrollY);
-    
     if(window.scrollY > 100)
       setShowScrollArrow(false);
     else setShowScrollArrow(true);
