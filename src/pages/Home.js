@@ -65,7 +65,7 @@ const Home = (props) => {
                 </div>                     
             </ThemeProvider>  
             {homeObjects.map(ho => (
-                <div id={ho.divId}>
+                <div key={ho.divId} id={ho.divId}>
                     {ho.jsx}
                 </div>
             ))}

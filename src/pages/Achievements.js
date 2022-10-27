@@ -43,7 +43,7 @@ const Achievements = (props) => {
                 >הישגי המועדון</Typography>
                 {
                     items.map( (item, i) => 
-                        <Box sx={{}}>
+                        <Box key={i} sx={{}}>
                             <div style={{color: theme.typography.color, fontFamily: theme.typography.fontFamily}}>
                                 <h2 >{item.name}</h2>
                                 <p>{item.description}</p>

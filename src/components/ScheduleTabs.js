@@ -19,8 +19,8 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value===index ? (items[index].map(t => 
-        <Box className='classBox' sx={{ display: 'flex',        
+      {value===index ? (items[index].map((t, i) => 
+        <Box key={i} className='classBox' sx={{ display: 'flex',        
         '& > :not(style)': {
           m: 'auto',
           mb: '2vh',

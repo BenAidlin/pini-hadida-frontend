@@ -15,10 +15,10 @@ const About = (props) => {
             מתחרה פעיל במשך 20 שנה ללא הפסקה בכול הארגונים  הבנלאומיים  ibjjf  jjif  naga uww  <br/>
         </p>;
     const bullets = [
-        <div dir="rtl"> אלוף ארופה לחגורות חומות מאסטר 2 ibjjf 2014</div>,
-        <div dir="rtl">אלוף עולם מסטר בגראפלינג גי ונוגי uww  2016</div>,
-        <div dir="rtl">מדליסט כסף אליפות ארופה מאסטר ibjjf 2018</div>,
-        <div dir="rtl">אלוף ארופה מאסטר jjif  2022</div>
+        'אלוף ארופה לחגורות חומות מאסטר 2 ibjjf 2014',
+        'אלוף עולם מסטר בגראפלינג גי ונוגי uww  2016',
+        'מדליסט כסף אליפות ארופה מאסטר ibjjf 2018',
+        'אלוף ארופה מאסטר jjif  2022'
     ];
     return (
         <div  style={{paddingTop: '14vh', minHeight: '86vh', paddingBottom: '3vh',
@@ -40,16 +40,13 @@ const About = (props) => {
                     {aboutText}
                 </Typography>
                 
-                {bullets.map(bullet => 
-                <div style={{margin:'auto', display:'inline-block'}}>
-                    <Typography
-                    sx={{maxWidth: '80%', margin: 'auto', marginTop: '5vh', color: theme.palette.decorative.lightBrown}}
-                    >{bullet}</Typography> 
-                    <CheckCircleIcon>
-                        
-                    </CheckCircleIcon>
-                    
-            
+                {bullets.map((bullet, i) => 
+                <div key={i} style={{margin:'auto', display:'inline-block'}}>
+                    <Typography dir='rtl'
+                        sx={{maxWidth: '80%', margin: 'auto', marginTop: '5vh', color: theme.palette.decorative.lightBrown}}>
+                        {bullet}
+                    </Typography> 
+                    <CheckCircleIcon/>                                
                 </div>
                 )}
                 
