@@ -39,7 +39,7 @@ const ImageListItemsFromFolder = (props) => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <img alt={'missing img'} src={imgInModal} onClick={()=>nextModal()}></img>
+                <img alt={'missing img'} src={imgInModal} onClick={()=>handleClose()}></img>
             </Modal> 
             <ImageList className="imglist" sx={{margin: 'auto', }} gap={10}>
                 {Object.values(images).map((item) => (
