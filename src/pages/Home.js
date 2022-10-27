@@ -6,24 +6,70 @@ import MartialArtsCards from '../components/MartialArtsCards';
 import About from './About';
 import Schedule from './Schedule';
 import Achievements from './Achievements';
+import { useLocation } from 'react-router';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useCallback } from 'react';
+
 
 const Home = (props) => {
-    /* eslint-disable */
     const theme = props.theme;
-    const midText = ".האקדמיה בראשות פיני חדידה מציעה לימוד של מגוון רחב של אומנויות לחימה, הקניית בטחון עצמי, כלים להגנה עצמית, וכמובן כושר ותנועתיות. האקדמיה ממוקמת בדרום הארץ ופועלת בעיר באר שבע"
-    /* eslint-enable */    
+    const [homeObjects] = useState([
+        {
+            divId: "About",
+            jsx: (
+                <About theme={theme}></About> 
+            ),
+            ref: document.getElementById("About")
+         },
+         {
+            divId: "Schedule",
+            jsx: (
+                <Schedule theme={theme}></Schedule>   
+            ),
+            ref: document.getElementById("Schedule")
+         },
+         {
+            divId: "Achievements",
+            jsx: (
+                <Achievements theme={theme}></Achievements>      
+            ),
+            ref: document.getElementById("Achievements")
+         }
+    ]);
+    const location = useLocation();
+    const locationUpdate = useCallback(() => {
+        for(let ho of homeObjects){
+            if(location.pathname.endsWith(ho.divId)){
+                document.getElementById(ho.divId).scrollIntoView({behavior: 'smooth'});
+                return;
+            }
+        }
+        document.getElementById('mainHomeDiv').scrollIntoView({behavior: 'smooth'});                
+    }, [location, homeObjects]);
+    useEffect(()=>{
+        // every time location updates        
+        locationUpdate();
+    }, [location, locationUpdate]);
+    useEffect(()=>{
+        // one time, when entering the component, wait 800 ms and update
+        setTimeout(() => {locationUpdate();}, 800)
+    }, [locationUpdate])
+
     return (
-        <div className='main'>
+        <div id='mainHomeDiv' className='main'>
             <video src={secondVideo} autoPlay={true} muted loop/>                           
             <ThemeProvider theme={theme}>
                 <div style={{backgroundColor:theme.palette.decorative.darkGrey}} className='below-video'>
                     <MartialArtsCards></MartialArtsCards>
                 </div>                     
             </ThemeProvider>  
-            <About theme={theme} ></About> 
-            <Schedule theme={theme}></Schedule>   
-            <Achievements theme={theme}></Achievements>      
-        </div>
+            {homeObjects.map(ho => (
+                <div id={ho.divId}>
+                    {ho.jsx}
+                </div>
+            ))}
+        </div>        
     );    
 }
 

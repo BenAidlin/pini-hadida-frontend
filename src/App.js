@@ -1,11 +1,8 @@
 import { useRef, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import Achievements from './pages/Achievements';
-import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Schedule from './pages/Schedule';
 import Gallery from './pages/Gallery';
 import { createTheme, } from "@mui/material";
 import { grey, brown } from '@mui/material/colors';
@@ -58,9 +55,9 @@ function App() {
   let defaultPage = new Page("דף הבית",process.env.REACT_APP_route_prefix + "/", <Home theme={darkTheme}></Home>);
   let navPages = [  
     defaultPage,
-    new Page("אודות", process.env.REACT_APP_route_prefix + "/About", <About theme={darkTheme}></About>),    
-    new Page("הישגי המועדון", process.env.REACT_APP_route_prefix + "/Academy-Acievements", <Achievements theme={darkTheme}></Achievements>),    
-    new Page("מערכת שבועית", process.env.REACT_APP_route_prefix + "/Schedule", <Schedule theme={darkTheme}></Schedule>),
+    new Page("אודות", process.env.REACT_APP_route_prefix + "/About", <Home theme={darkTheme}></Home>),    
+    new Page("הישגי המועדון", process.env.REACT_APP_route_prefix + "/Achievements", <Home theme={darkTheme}></Home>),    
+    new Page("מערכת שבועית", process.env.REACT_APP_route_prefix + "/Schedule", <Home theme={darkTheme}></Home>),
     new Page("גלריה", process.env.REACT_APP_route_prefix + "/Gallery", <Gallery theme={darkTheme}></Gallery>)
   ];
   let userMenues = [
