@@ -103,7 +103,7 @@ function App() {
         />
         <div className='scrollDownImageDiv'>
           <img onClick={()=>{window.scrollBy(0, 100)}}
-          style={{display: showScrollArrow ? 'block' : 'none'}} src={scrolldown} alt={"scroll down to see mode"}></img>  
+          style={{display: showScrollArrow ? 'block' : 'none', cursor: 'unset'}} src={scrolldown} alt={"scroll down to see mode"}></img>  
         </div>        
         { /* Body */ }
         <Routes>
