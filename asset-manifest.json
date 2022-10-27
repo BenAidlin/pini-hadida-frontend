@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/projects.pini-hadida-frontend/static/css/main.96058cb1.css",
-    "main.js": "/projects.pini-hadida-frontend/static/js/main.ec0b651a.js",
+    "main.js": "/projects.pini-hadida-frontend/static/js/main.69cf08fb.js",
     "static/js/787.b701888c.chunk.js": "/projects.pini-hadida-frontend/static/js/787.b701888c.chunk.js",
     "static/media/second-vid.mp4": "/projects.pini-hadida-frontend/static/media/second-vid.59238ca4c48d2d393983.mp4",
     "static/media/5555.jpg": "/projects.pini-hadida-frontend/static/media/5555.65b9415c40642a6b7125.jpg",
@@ -40,11 +40,11 @@
     "static/media/logo-nobackground.png": "/projects.pini-hadida-frontend/static/media/logo-nobackground.0656ff896fde644f1426.png",
     "index.html": "/projects.pini-hadida-frontend/index.html",
     "main.96058cb1.css.map": "/projects.pini-hadida-frontend/static/css/main.96058cb1.css.map",
-    "main.ec0b651a.js.map": "/projects.pini-hadida-frontend/static/js/main.ec0b651a.js.map",
+    "main.69cf08fb.js.map": "/projects.pini-hadida-frontend/static/js/main.69cf08fb.js.map",
     "787.b701888c.chunk.js.map": "/projects.pini-hadida-frontend/static/js/787.b701888c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.96058cb1.css",
-    "static/js/main.ec0b651a.js"
+    "static/js/main.69cf08fb.js"
   ]
 }
