@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/projects.pini-hadida-frontend/static/css/main.1c764e00.css",
-    "main.js": "/projects.pini-hadida-frontend/static/js/main.3dbedd46.js",
+    "main.css": "/projects.pini-hadida-frontend/static/css/main.33f4f572.css",
+    "main.js": "/projects.pini-hadida-frontend/static/js/main.56dfa3f0.js",
     "static/js/787.b701888c.chunk.js": "/projects.pini-hadida-frontend/static/js/787.b701888c.chunk.js",
     "static/media/second-vid.mp4": "/projects.pini-hadida-frontend/static/media/second-vid.59238ca4c48d2d393983.mp4",
+    "static/media/location.png": "/projects.pini-hadida-frontend/static/media/location.95c22a47b5a8bdef1a51.png",
     "static/media/5555.jpg": "/projects.pini-hadida-frontend/static/media/5555.65b9415c40642a6b7125.jpg",
     "static/media/22.jpg": "/projects.pini-hadida-frontend/static/media/22.872990707ff45dada2d8.jpg",
     "static/media/11.jpg": "/projects.pini-hadida-frontend/static/media/11.8a6bf2f422ec5a3d1247.jpg",
@@ -40,12 +41,12 @@
     "static/media/selfdefence.webp": "/projects.pini-hadida-frontend/static/media/selfdefence.4c880550c7f646fb67e2.webp",
     "static/media/logo-nobackground.png": "/projects.pini-hadida-frontend/static/media/logo-nobackground.0656ff896fde644f1426.png",
     "index.html": "/projects.pini-hadida-frontend/index.html",
-    "main.1c764e00.css.map": "/projects.pini-hadida-frontend/static/css/main.1c764e00.css.map",
-    "main.3dbedd46.js.map": "/projects.pini-hadida-frontend/static/js/main.3dbedd46.js.map",
+    "main.33f4f572.css.map": "/projects.pini-hadida-frontend/static/css/main.33f4f572.css.map",
+    "main.56dfa3f0.js.map": "/projects.pini-hadida-frontend/static/js/main.56dfa3f0.js.map",
     "787.b701888c.chunk.js.map": "/projects.pini-hadida-frontend/static/js/787.b701888c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c764e00.css",
-    "static/js/main.3dbedd46.js"
+    "static/css/main.33f4f572.css",
+    "static/js/main.56dfa3f0.js"
   ]
 }
