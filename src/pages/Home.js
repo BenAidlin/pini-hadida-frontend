@@ -10,6 +10,7 @@ import { useLocation } from 'react-router';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useCallback } from 'react';
+import Contact from './Contact';
 
 
 const Home = (props) => {
@@ -23,12 +24,21 @@ const Home = (props) => {
             ref: document.getElementById("About")
          },
          {
+            divId: "Contact",
+            jsx: (
+                <Contact theme={theme}></Contact>   
+            ),
+            ref: document.getElementById("Schedule")
+         },
+         {
             divId: "Schedule",
             jsx: (
                 <Schedule theme={theme}></Schedule>   
             ),
             ref: document.getElementById("Schedule")
          },
+
+
          {
             divId: "Achievements",
             jsx: (

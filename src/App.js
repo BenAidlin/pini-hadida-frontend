@@ -59,10 +59,10 @@ function App() {
   let navPages = [  
     defaultPage,
     new Page("אודות", process.env.REACT_APP_route_prefix + "/About", <Home theme={darkTheme}></Home>),    
+    new Page("יצירת קשר", process.env.REACT_APP_route_prefix + "/Contact", <Home theme={darkTheme}></Home>),
     new Page("מערכת שבועית", process.env.REACT_APP_route_prefix + "/Schedule", <Home theme={darkTheme}></Home>),
-    new Page("הישגי המועדון", process.env.REACT_APP_route_prefix + "/Achievements", <Home theme={darkTheme}></Home>),        
-    new Page("גלריה", process.env.REACT_APP_route_prefix + "/Gallery", <Gallery theme={darkTheme}></Gallery>),
-    new Page("יצירת קשר", process.env.REACT_APP_route_prefix + "/Contact", <Contact theme={darkTheme}></Contact>)
+    new Page("הישגי המועדון", process.env.REACT_APP_route_prefix + "/Achievements", <Home theme={darkTheme}></Home>),            
+    new Page("גלריה", process.env.REACT_APP_route_prefix + "/Gallery", <Gallery theme={darkTheme}></Gallery>),    
   ];
   let userMenues = [
     // user menu will always have log out option
