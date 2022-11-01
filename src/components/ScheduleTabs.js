@@ -2,15 +2,28 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { Paper } from '@mui/material';
 import './../style/ScheduleTabs.css'
 import { ThemeProvider} from "@mui/material";
+import Timetable from 'react-timetable-events'
 
 function TabPanel(props) {
   const {items, theme, value, index, ...other } = props;
-
+  function renderHour(hour, defaultAttributes, styles) {
+    return (
+      <div
+        {...defaultAttributes}
+        key={hour}
+        style={{
+          ...defaultAttributes.style,
+          textAlign: "center",
+          textDecoration: "underline"
+        }}
+      >
+        {hour}
+      </div>
+    );
+  }
   return (
     <div
       role="tabpanel"
@@ -19,24 +32,29 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value===index ? (items[index].map((t, i) => 
-        <Box key={i} className='classBox' sx={{ display: 'flex',        
-        '& > :not(style)': {
-          m: 'auto',
-          mb: '2vh',
-          mt: '2vh',
-          width: '60vh',
-          height: '18vh',
-        }, }}>
-            <Paper sx={{backgroundColor: theme.palette.decorative.lightBrown}} className='classPaper' elevation={12}>
-                <Typography variant='h6' sx={{
-                    fontFamily:"unset"
-                    ,fontWeight: 400,                    
-                }}>{t[0]}</Typography>
-                <Typography sx={{fontFamily:'cursive'}}>{t[1]}</Typography>
-            </Paper>          
-        </Box> 
-      )) : ""}
+      {value===index ? ( 
+        <Timetable 
+        events={items[index]}
+        hoursInterval={{from: 13, to: 23}}
+        timeLabel={"שעה"}
+        style={{ 
+          height: '70vh',
+          marginTop: '1vh',
+          color: theme.typography.color,
+          fontFamily: theme.typography.fontFamily,
+
+        }}
+        headerAttributes={{
+            "style": {
+              backgroundColor: theme.palette.primary.main,              
+          }
+        }}
+        bodyAttributes={{
+
+        }}
+        renderHour={renderHour}
+      />
+      ) : ""}
     </div>
   );
 }

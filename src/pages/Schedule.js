@@ -1,10 +1,75 @@
 import * as React from 'react';
 import ScheduleTabs from './../components/ScheduleTabs';
 import {Typography} from "@mui/material";
+
 let items = {
-    2: [["יום ראשון", "20:00 - 22:00"],["יום שלישי", "20:00 - 22:00"],["יום חמישי", "20:00 - 22:00"]],
-    1: [["יום שני", "19:00 - 21:00"],["יום רביעי", "19:00 - 21:00"]],
-    0: [["יום שישי", "14:00 - 16:00"]]
+    2: {
+      "חמישי": [
+        {
+          id: 1,
+          name: "פיני חדידה",
+          type: "custom",
+          startTime: new Date("2018-02-23T20:00:00"),
+          endTime: new Date("2018-02-23T22:00:00"),
+        },
+      ],
+      "שלישי":[
+        {
+          id: 1,
+          name: "פיני חדידה",
+          type: "custom",
+          startTime: new Date("2018-02-23T20:00:00"),
+          endTime: new Date("2018-02-23T22:00:00"),
+        },
+      ],
+      "ראשון": [
+        {
+          id: 1,
+          name: "פיני חדידה",
+          type: "custom",
+          startTime: new Date("2018-02-23T20:00:00"),
+          endTime: new Date("2018-02-23T22:00:00"),
+        },
+      ]
+    },
+    1: {
+      "רביעי" : [
+        {
+          id: 1,
+          name: "אריאל פיסחוב",
+          type: "custom",
+          startTime: new Date("2018-02-23T19:00:00"),
+          endTime: new Date("2018-02-23T21:00:00"),
+        },
+      ],
+      "שני" :[
+        {
+          id: 1,
+          name: "איראל פיסחוב",
+          type: "custom",
+          startTime: new Date("2018-02-23T19:00:00"),
+          endTime: new Date("2018-02-23T21:00:00"),
+        },
+      ]
+    },
+    0: {
+      "שישי": [
+        {
+          id: 1,
+          name: "MMA",
+          type: "custom",
+          startTime: new Date("2018-02-23T14:00:00"),
+          endTime: new Date("2018-02-23T15:00:00"),
+        },
+        {
+          id: 2,
+          name: "מזרון פתוח",
+          type: "custom",
+          startTime: new Date("2018-02-23T15:00:00"),
+          endTime: new Date("2018-02-23T16:00:00"),
+        },
+      ],
+    }
 }
 
 const Schedule = (props) => {  
