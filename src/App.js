@@ -4,11 +4,12 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Gallery from './pages/Gallery';
-import { createTheme, } from "@mui/material";
+import { createTheme, Fab } from "@mui/material";
 import { grey, brown } from '@mui/material/colors';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import scrolldown from './extensions/images/scrolldown-gif4.gif'
 import { useEffect } from 'react';
+import CallIcon from '@mui/icons-material/Call';
 
 // app theme
 const darkTheme = createTheme({
@@ -107,9 +108,13 @@ function App() {
               showedGoogleTooltip = {showedGoogleTooltip}
         />
         <div className='scrollDownImageDiv'>
-          <img 
-          style={{display: showScrollArrow ? 'block' : 'none', cursor: 'unset'}} src={scrolldown} alt={"scroll down to see mode"}></img>  
+          <img style={{display: showScrollArrow ? 'block' : 'none', cursor: 'unset'}} src={scrolldown} alt={"scroll down to see mode"}></img>  
         </div>        
+        <div className='contactFabDiv'>
+          <Fab color="inherit" aria-label="call">
+            <CallIcon></CallIcon>
+          </Fab>
+        </div>
         { /* Body */ }
         <Routes>
           <Route path='/*' element={defaultPage.component}></Route>                    
