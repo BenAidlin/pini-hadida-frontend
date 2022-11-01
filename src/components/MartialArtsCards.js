@@ -15,13 +15,13 @@ const MartialArtsCards = (props) => {
     const muaythaiText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
     const selfdefenceText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
     const bjjCard = <CardActionArea>
-                        <CardMedia
+                        <CardMedia  sx={{cursor: 'auto'}}
                         component="img"
                         height="140"
                         image={bjj}
                         alt="green iguana"
                         />
-                        <CardContent>
+                        <CardContent sx={{cursor: 'auto'}}>
                         <Typography gutterBottom variant="h5" component="div">
                             ג'יוג'יטסו ברזילאי
                         </Typography>
@@ -31,13 +31,13 @@ const MartialArtsCards = (props) => {
                         </CardContent>
                     </CardActionArea>
     const mmaCard =  <CardActionArea>
-                        <CardMedia
+                        <CardMedia sx={{cursor: 'auto'}}
                         component="img"
                         height="140"
                         image={mma}
                         alt="green iguana"
                         />
-                        <CardContent>
+                        <CardContent sx={{cursor: 'auto'}}>
                         <Typography gutterBottom variant="h5" component="div">
                             MMA
                         </Typography>
@@ -46,14 +46,14 @@ const MartialArtsCards = (props) => {
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-    const muaythaiCard = <CardActionArea>
-                            <CardMedia
+    const muaythaiCard = <CardActionArea >
+                            <CardMedia sx={{cursor: 'auto'}}
                             component="img"
                             height="140"
                             image={muaythai}
                             alt="green iguana"
                             />
-                            <CardContent>
+                            <CardContent sx={{cursor: 'auto'}}>
                             <Typography gutterBottom variant="h5" component="div">
                                 אגרוף תאילנדי
                             </Typography>
@@ -62,14 +62,14 @@ const MartialArtsCards = (props) => {
                             </Typography>
                             </CardContent>
                         </CardActionArea>
-    const selfdefenceCard = <CardActionArea>
-                                <CardMedia
+    const selfdefenceCard = <CardActionArea >
+                                <CardMedia sx={{cursor: 'auto'}}
                                 component="img"
                                 height="140"
                                 image={selfdefence}
                                 alt="green iguana"
                                 />
-                                <CardContent>
+                                <CardContent sx={{cursor: 'auto'}}>
                                 <Typography gutterBottom variant="h5" component="div">
                                     הגנה עצמית
                                 </Typography>
