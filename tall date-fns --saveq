@@ -1,0 +1,428 @@
+[33mcommit 3f1462a92053920ee9b2dc25eb95f5951229307a[m[33m ([m[1;36mHEAD -> [m[1;32mfeature-change-schedule-look[m[33m)[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Tue Nov 1 12:04:35 2022 +0200
+
+    timetable
+
+[33mcommit fcada35c769f4533c528084c89743e4720d8d025[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 27 19:20:42 2022 +0300
+
+    remove console log on window y
+
+[33mcommit 8d41566693af0f74cb45144b2b0432382eff05d1[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 27 19:13:43 2022 +0300
+
+    scrolling adjustments
+
+[33mcommit 9e693f720c31741e5f3f5b9c3d2f39a8922d8e85[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 27 18:14:39 2022 +0300
+
+    set cursor on scrolling gif
+
+[33mcommit e63520032ea80bb3fd44abe17be03e0342547a88[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 27 18:13:26 2022 +0300
+
+    add scrolling gif
+
+[33mcommit 5428b977485663f7670c88318f6ef3d56efafcf6[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 27 18:00:15 2022 +0300
+
+    warnings cleanup
+
+[33mcommit f6fb01e1b36d1b909f6e4431e6fb3e5bbe2343be[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 27 17:39:41 2022 +0300
+
+    NAVIGATION - navigate in home page through schedule, achievments ..
+
+[33mcommit 75ff75d70565a50e9d6d662dddd25703c806b819[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 27 11:44:55 2022 +0300
+
+    modal on click close instead of change image
+
+[33mcommit db630f6749b7fc13ce8e168d7cb01b13768118dd[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Wed Oct 26 09:35:12 2022 +0300
+
+    added scroll-down indication
+
+[33mcommit 9e32c1b1c37e0d6020f72075e5928dea9be01e3b[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Tue Oct 25 16:29:43 2022 +0300
+
+    scrolling started
+
+[33mcommit 0945a89d89265a5b9720b8c3d018d0727ea470ac[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Tue Oct 25 14:36:37 2022 +0300
+
+    add pini's requested about
+
+[33mcommit cb1e450f40e85cd35724b45e1cac28aa3e094a55[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 22 12:54:14 2022 +0300
+
+    remove test
+
+[33mcommit 666a55c3aa706e3e6859b48dbcf741b83c80c5e7[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 22 12:43:13 2022 +0300
+
+    BIG CHANGE - moved to home page all other changes
+
+[33mcommit a7dc85119390107f671ed4ecd733329a1557a852[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 16:51:28 2022 +0300
+
+    fix build warnings
+
+[33mcommit 72af57817e65cca09d389b06b3e47bf7a246509f[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 16:48:30 2022 +0300
+
+    add about page
+
+[33mcommit 4cd8da513099d959aaf48a601f241c77bbe4e2a9[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 16:02:06 2022 +0300
+
+    remove image with title component - move modal to images from folder component - try adding swiping
+
+[33mcommit 135935a758a7febeb753e07f199ef57e91d28249[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 15:19:10 2022 +0300
+
+    change galler to also padding 14 maxheight 86
+
+[33mcommit 5ecf119dd5e9bdff09d95da17dfe1f8e67b551a9[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 15:05:24 2022 +0300
+
+    remove unnecessary sx and props and classnames ..
+
+[33mcommit 475fdd2e4d59ee674c497f7c9d891e87a66164e3[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 14:47:05 2022 +0300
+
+    about with avatar and achievments with min-height
+
+[33mcommit f1c1cd79a0a749c1a1de1c786968e08e086065b9[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 14:09:06 2022 +0300
+
+    use navigation in navbar
+
+[33mcommit a5864e32edb280b111ade6c58ffcf859c2823c58[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 13:58:03 2022 +0300
+
+    create modal in ahcievments
+
+[33mcommit c85a5dd7d5b0379d06028956cecf6b787cec9252[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 21 13:40:49 2022 +0300
+
+    make achievments not in carousel - one by one
+
+[33mcommit b5dfde700875fba28858996626435e4f69cd777b[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 20 14:42:23 2022 +0300
+
+    move some css props to parent in schedule
+
+[33mcommit 95f4a11548ff78bc4f833bf8c682be3d029577af[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 17 16:02:41 2022 +0300
+
+    fix build warnings
+
+[33mcommit 50ecec88b903900d63d931c01d1963da4457d87a[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 17 15:51:14 2022 +0300
+
+    following previous commit
+
+[33mcommit 1f774cd82f9dbab596aa93ad3be20380f57ef52e[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 17 15:50:55 2022 +0300
+
+    add imageSx to imageListItemsFromFolder, add Achievments
+
+[33mcommit f95b997edd89824b8222ecb3f6e596fcbc29883f[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 17 14:13:11 2022 +0300
+
+    create imageListItemsFromFolder and use in Gallery
+
+[33mcommit 753801e8defa6b68b4ef6acdaeda66c0d25c6214[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 15 14:32:57 2022 +0300
+
+    update favicon with white gi
+
+[33mcommit bc760dd20c60388c8bfc3982a3e7604c900fc5eb[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 15 14:20:43 2022 +0300
+
+    favicon change
+
+[33mcommit 6173ece820bfbaa7941adbfc1b986e464d5d7477[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 15 14:00:16 2022 +0300
+
+    remove warnings with key prop
+
+[33mcommit 23292abe1fd69ce845c9c4b47e4a3b3d9e1c4b3f[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 15 13:51:21 2022 +0300
+
+    move schedule to component
+
+[33mcommit d69f2c65624feac4add30f22bfa46d74138e9e71[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 15 13:34:58 2022 +0300
+
+    fixed gallery scrolling
+
+[33mcommit 42a473935c4da66974161abdcafd71ab91cded19[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 15 13:08:07 2022 +0300
+
+    tooltip showing for 2 seconds when scrolling first time in page(when back to the same page shows again)
+
+[33mcommit 886587e2326c9145e819d4bda72ae2964a0c85b1[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 19:42:21 2022 +0300
+
+    handle scrolling tooltip in google login and also href when pressing logo
+
+[33mcommit 1c8fcd65b88ffbb1ab2f1a473f07741b2a3361ac[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 16:51:53 2022 +0300
+
+    some not important refactoring
+
+[33mcommit 357fba675cb68381133efed9790294ec010d3247[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 16:38:39 2022 +0300
+
+    move martial arts cards to componenet
+
+[33mcommit e34c826a3bbf1083cb1a364b5130ff294f1b8bca[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 16:35:19 2022 +0300
+
+    add theme provider and remove unnecessary js files
+
+[33mcommit 43c15d63542b1cb8b7ecf7b8c61813877c47a912[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 16:20:50 2022 +0300
+
+    add typography to theme and fix some things in navbar
+
+[33mcommit 8be4d2e04502fd84ee0e963e575bd7479e825c95[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 13:55:03 2022 +0300
+
+    add .env file to actions
+
+[33mcommit 76fc859c36495a4b246e4958f3e09b680f38ee89[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 13:50:07 2022 +0300
+
+    use and fix app routing
+
+[33mcommit 23db0746ee19a5efa9ed2a31d82542ad0e0a945e[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 10:57:34 2022 +0300
+
+    allow testing in workflow
+
+[33mcommit 3a2a313a9aef00c6dbc44dd3a2a988363f3f1aa3[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 10:39:57 2022 +0300
+
+    fix warning in achievments
+
+[33mcommit 84ecffdc727a4bcd7e7d2724dd094991e9bcf09f[m
+Merge: bc5b0b2 77e3867
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 10:36:07 2022 +0300
+
+    Merge branch 'main' of https://github.com/BenAidlin/pini-hadida-frontend
+
+[33mcommit bc5b0b292c8bc8b508c2c3e4302f2e9c436ad73a[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 14 10:36:02 2022 +0300
+
+    fix warning for clean compile
+
+[33mcommit 77e386763108217772164932156d1d75f8e464fb[m
+Author: Ben Aidlin <74815296+BenAidlin@users.noreply.github.com>
+Date:   Fri Oct 14 10:21:43 2022 +0300
+
+    Update node.js.yml
+
+[33mcommit 0207dbdb202330467242cdb7358632c8196c2b94[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 13 19:30:47 2022 +0300
+
+    gallery and navbar adjust
+
+[33mcommit 572fef46ff9eac8c68acc7ccf63f57fcd1393b70[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 13 18:50:21 2022 +0300
+
+    check all color references come from theme
+
+[33mcommit 9d10ee3af7fdfc57ff47b7d94130f199cb6034be[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 13 18:30:59 2022 +0300
+
+    move theme to app.js
+
+[33mcommit 22bcf9adaa0a8583e6e7573c597b535da771e659[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 13 18:01:45 2022 +0300
+
+    weekly schedule done
+
+[33mcommit 7e5727c38cd873bd23efdf81757c0480a54889b9[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 13 17:16:29 2022 +0300
+
+    schedule divided into workout typs
+
+[33mcommit 20fccbb7c13ca81f546a12a6210f612efa9ca5eb[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 13 15:34:47 2022 +0300
+
+    calendar with open source package
+
+[33mcommit f782ace182a6d7c21de8d72603ae2eb71778bfc3[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 13 11:34:20 2022 +0300
+
+    setup gh-pages
+
+[33mcommit f33307934e75065dd538ab77c8c50ebf13a9ce43[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Wed Oct 12 20:11:33 2022 +0300
+
+    start creating the weekly schedule
+
+[33mcommit 3962104d2268ea2e9919b630833f910767b08f80[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Wed Oct 12 17:36:32 2022 +0300
+
+    create gallery page
+
+[33mcommit a16a10bcbfe2062a75a98a76996655728a35db38[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Tue Oct 11 17:02:11 2022 +0300
+
+    order the drop down in hamburger menu
+
+[33mcommit c659ece79cad26d727bb537c18243c41ce525c0d[m
+Merge: 5f3d68f ed84741
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 10 20:50:10 2022 +0300
+
+    Merge branch 'main' of https://github.com/BenAidlin/pini-hadida-frontend
+
+[33mcommit 5f3d68f22acdef0d02bd383f7372eb83ac1c2d19[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 10 20:50:05 2022 +0300
+
+    home page done
+
+[33mcommit 7b652d1f36194a5b0f7805d041f00c9caa9fc9f6[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 10 20:31:54 2022 +0300
+
+    home page ready
+
+[33mcommit ed84741bd7b8b25a1fa67479d36346aac48074c0[m
+Author: Ben Aidlin <74815296+BenAidlin@users.noreply.github.com>
+Date:   Mon Oct 10 18:52:29 2022 +0300
+
+    Update node.js.yml
+
+[33mcommit 2ae290a8ea51b831d1bb3885ebd2eb003d93dd7e[m
+Merge: 2904af7 963b3d5
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 10 18:51:13 2022 +0300
+
+    Merge branch 'main' of https://github.com/BenAidlin/pini-hadida-frontend
+
+[33mcommit 2904af77a0039a7283cfbb3c90c1a41d1e5810a9[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 10 18:51:08 2022 +0300
+
+    fix logo image ref
+
+[33mcommit 963b3d514c9f2e935129619c777f3ddd0487f04f[m
+Author: Ben Aidlin <74815296+BenAidlin@users.noreply.github.com>
+Date:   Mon Oct 10 18:45:01 2022 +0300
+
+    Update node.js.yml
+
+[33mcommit f5959271681e3c79acce38e15e54db14b1136d19[m
+Author: Ben Aidlin <74815296+BenAidlin@users.noreply.github.com>
+Date:   Mon Oct 10 18:33:07 2022 +0300
+
+    Create node.js.yml
+
+[33mcommit 47a3c892e017684c380d4525d8e5103d827a0dee[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Mon Oct 10 18:15:00 2022 +0300
+
+    nav bar stable
+
+[33mcommit a4cae327cc7a824592100f1c5ff2ec71d7b704b3[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 8 19:33:42 2022 +0300
+
+    create user settings menu and populate
+
+[33mcommit a6a7f880b50d42e7d241a803c340beebaa85889f[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Oct 8 19:22:48 2022 +0300
+
+    hebrew align for pini
+
+[33mcommit 875ef8a3688a558b444eca05f1925afe13c57afa[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Fri Oct 7 09:17:36 2022 +0300
+
+    get a hold of theme
+
+[33mcommit 5d00028bd168f1a42850f063a9b78c54070bf4d2[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Thu Oct 6 15:33:39 2022 +0300
+
+    navbar working
+
+[33mcommit e6204ebe4677dba7d4994f3d66c9beb8069b18a0[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Tue Oct 4 12:21:58 2022 +0300
+
+    have navbar working
+
+[33mcommit b2b2dbfa5e6ee9ae440c7038247a23b76e812797[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Tue Oct 4 12:21:26 2022 +0300
+
+    have navnar, have students, no navigation
+
+[33mcommit 02f43d3046d38dcebec021bbe1189c34c2a2d58a[m
+Author: Ben Aidlin <ben.aidlin@intel.com>
+Date:   Sat Sep 17 13:32:38 2022 +0300
+
+    Initialize project using Create React App

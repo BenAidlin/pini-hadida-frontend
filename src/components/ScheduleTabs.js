@@ -1,70 +1,11 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import './../style/ScheduleTabs.css'
 import { ThemeProvider} from "@mui/material";
-import Timetable from 'react-timetable-events'
 
-function TabPanel(props) {
-  const {items, theme, value, index, ...other } = props;
-  function renderHour(hour, defaultAttributes, styles) {
-    return (
-      <div
-        {...defaultAttributes}
-        key={hour}
-        style={{
-          ...defaultAttributes.style,
-          textAlign: "center",
-          textDecoration: "underline"
-        }}
-      >
-        {hour}
-      </div>
-    );
-  }
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value===index ? ( 
-        <Timetable 
-        events={items[index]}
-        hoursInterval={{from: 13, to: 23}}
-        timeLabel={"שעה"}
-        style={{ 
-          height: '70vh',
-          marginTop: '1vh',
-          color: theme.typography.color,
-          fontFamily: theme.typography.fontFamily,
-
-        }}
-        headerAttributes={{
-            "style": {
-              backgroundColor: theme.palette.primary.main,              
-          }
-        }}
-        bodyAttributes={{
-
-        }}
-        renderHour={renderHour}
-      />
-      ) : ""}
-    </div>
-  );
-}
-
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
+import TabPanel from './TabPanel';
 
 function a11yProps(index) {
   return {
@@ -94,17 +35,14 @@ const ScheduleTabs = (props) => {
                 <Tab sx={tabsStyle} label="mma + מזרון פתוח" {...a11yProps(0)} />
                 <Tab sx={tabsStyle} label="אגרוף תאילנדי" {...a11yProps(1)} />
                 <Tab sx={tabsStyle} label="ג'יוג'יטסו ברזילאי" {...a11yProps(2)} />
+                <Tab sx={tabsStyle} label='לו"ז שבועי' {...a11yProps(3)} />
                 </Tabs>
             </Box>
-            <TabPanel items={items} theme={theme} value={value} index={0}>
-                Item One
-            </TabPanel>
-            <TabPanel items={items} theme={theme} value={value} index={1}>
-                Item Two
-            </TabPanel>
-            <TabPanel items={items} theme={theme} value={value} index={2}>
-                Item Three
-            </TabPanel>
+            <TabPanel items={items} theme={theme} value={value} index={0}/>                
+            <TabPanel items={items} theme={theme} value={value} index={1}/>
+            <TabPanel items={items} theme={theme} value={value} index={2}/>
+            <TabPanel items={items} theme={theme} value={value} index={3}/>
+
         </Box>
         </ThemeProvider>
     </div>    
