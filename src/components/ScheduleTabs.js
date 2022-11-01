@@ -24,14 +24,15 @@ const ScheduleTabs = (props) => {
   const tabsStyle = {
     fontFamily:theme.typography.fontFamily
     ,fontWeight: 700,
-    color: theme.typography.color
+    color: theme.typography.color,
+    maxWidth: '25wh'
 }
   return (
-    <div style={{backgroundColor: theme.palette.decorative.darkGrey, height: '100vh'}}>
+    <div style={{backgroundColor: theme.palette.decorative.darkGrey, height: '100vh', maxWidth: '100%'}}>
         <ThemeProvider theme={theme}>
         <Box  className='scheduleBox' >
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs textColor="secondary" indicatorColor='secondary' value={value} onChange={handleChange} centered variant='fullWidth'>
+                <Tabs textColor="secondary" indicatorColor='secondary' value={value} onChange={handleChange} centered variant='fullWidth' allowScrollButtonsMobile={true} >
                 <Tab sx={tabsStyle} label="mma + מזרון פתוח" {...a11yProps(0)} />
                 <Tab sx={tabsStyle} label="אגרוף תאילנדי" {...a11yProps(1)} />
                 <Tab sx={tabsStyle} label="ג'יוג'יטסו ברזילאי" {...a11yProps(2)} />
