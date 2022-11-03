@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/projects.pini-hadida-frontend/static/css/main.33f4f572.css",
-    "main.js": "/projects.pini-hadida-frontend/static/js/main.56dfa3f0.js",
+    "main.js": "/projects.pini-hadida-frontend/static/js/main.b90016a4.js",
     "static/js/787.b701888c.chunk.js": "/projects.pini-hadida-frontend/static/js/787.b701888c.chunk.js",
     "static/media/second-vid.mp4": "/projects.pini-hadida-frontend/static/media/second-vid.59238ca4c48d2d393983.mp4",
     "static/media/location.png": "/projects.pini-hadida-frontend/static/media/location.95c22a47b5a8bdef1a51.png",
@@ -14,7 +14,9 @@
     "static/media/64.jpg": "/projects.pini-hadida-frontend/static/media/64.52d997ddc3beae417f3e.jpg",
     "static/media/7458b9fa-e2eb-4ba2-bba2-b00a7c7ea4fd.jpg": "/projects.pini-hadida-frontend/static/media/7458b9fa-e2eb-4ba2-bba2-b00a7c7ea4fd.12e4016720e4822d2eb7.jpg",
     "static/media/4.jpg": "/projects.pini-hadida-frontend/static/media/4.e6de07e777d2bdc6e841.jpg",
+    "static/media/black.png": "/projects.pini-hadida-frontend/static/media/black.73626146457dbe8d7528.png",
     "static/media/bjj.jpg": "/projects.pini-hadida-frontend/static/media/bjj.46041f713685f974b629.jpg",
+    "static/media/blue.png": "/projects.pini-hadida-frontend/static/media/blue.c015f48be86c6c95e853.png",
     "static/media/95897c13-ead1-4d8e-b931-9dfe73038a66.jpg": "/projects.pini-hadida-frontend/static/media/95897c13-ead1-4d8e-b931-9dfe73038a66.e0475a0147267a61fab7.jpg",
     "static/media/63ec73c5-2e13-40f2-84d3-d6323fece66c.jpg": "/projects.pini-hadida-frontend/static/media/63ec73c5-2e13-40f2-84d3-d6323fece66c.cb34ca20890635a82897.jpg",
     "static/media/mma.jpg": "/projects.pini-hadida-frontend/static/media/mma.e0359f0587e9407df964.jpg",
@@ -25,6 +27,7 @@
     "static/media/d8a2dbe6-ba53-481b-a77f-13ddc6efcd1e.jpg": "/projects.pini-hadida-frontend/static/media/d8a2dbe6-ba53-481b-a77f-13ddc6efcd1e.4e07f07e05fd294ee2b2.jpg",
     "static/media/791b3b7a-c2b9-479c-b272-a2c44bb48a1e.jpg": "/projects.pini-hadida-frontend/static/media/791b3b7a-c2b9-479c-b272-a2c44bb48a1e.d1d6ac1ffa69e47a5554.jpg",
     "static/media/3d2ae702-a2ec-4368-aede-c51eb513031b.jpg": "/projects.pini-hadida-frontend/static/media/3d2ae702-a2ec-4368-aede-c51eb513031b.4d57450af170d847a2c5.jpg",
+    "static/media/purple.png": "/projects.pini-hadida-frontend/static/media/purple.a98b5cd52467104d509f.png",
     "static/media/8361ea65-b81e-4f39-a1b2-71b5f0d6891c.jpg": "/projects.pini-hadida-frontend/static/media/8361ea65-b81e-4f39-a1b2-71b5f0d6891c.99d5c9f90f2dde9dbc84.jpg",
     "static/media/1.jpg": "/projects.pini-hadida-frontend/static/media/1.7d45d69410034110a2d9.jpg",
     "static/media/8678fdff-7d98-4c6f-bea4-1bca5ae4cad8.jpg": "/projects.pini-hadida-frontend/static/media/8678fdff-7d98-4c6f-bea4-1bca5ae4cad8.f184435fd66dad3a66d0.jpg",
@@ -35,18 +38,20 @@
     "static/media/b.jpg": "/projects.pini-hadida-frontend/static/media/b.d07742d28cca259ba8af.jpg",
     "static/media/pinihadida-profile.jpg": "/projects.pini-hadida-frontend/static/media/pinihadida-profile.53dfdd7a37cdec590871.jpg",
     "static/media/285758429___n.jpg": "/projects.pini-hadida-frontend/static/media/285758429_10224774348560572_5726647234992794869_n.a3d5d61c484931ba12b9.jpg",
+    "static/media/white.png": "/projects.pini-hadida-frontend/static/media/white.4c9702defb61e797a742.png",
     "static/media/309617119___n.jpg": "/projects.pini-hadida-frontend/static/media/309617119_10225334936774927_8722815585620219827_n.bbc717600e426e18c704.jpg",
     "static/media/308844454___n.jpg": "/projects.pini-hadida-frontend/static/media/308844454_10225334933974857_1994299517128450246_n.bf989d894cd4d008c0c3.jpg",
+    "static/media/brown.png": "/projects.pini-hadida-frontend/static/media/brown.5aec77203579c9a892ba.png",
     "static/media/285651034___n.jpg": "/projects.pini-hadida-frontend/static/media/285651034_10224774455123236_1738915013863916125_n.ccac8942368f5877c0aa.jpg",
     "static/media/selfdefence.webp": "/projects.pini-hadida-frontend/static/media/selfdefence.4c880550c7f646fb67e2.webp",
     "static/media/logo-nobackground.png": "/projects.pini-hadida-frontend/static/media/logo-nobackground.0656ff896fde644f1426.png",
     "index.html": "/projects.pini-hadida-frontend/index.html",
     "main.33f4f572.css.map": "/projects.pini-hadida-frontend/static/css/main.33f4f572.css.map",
-    "main.56dfa3f0.js.map": "/projects.pini-hadida-frontend/static/js/main.56dfa3f0.js.map",
+    "main.b90016a4.js.map": "/projects.pini-hadida-frontend/static/js/main.b90016a4.js.map",
     "787.b701888c.chunk.js.map": "/projects.pini-hadida-frontend/static/js/787.b701888c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.33f4f572.css",
-    "static/js/main.56dfa3f0.js"
+    "static/js/main.b90016a4.js"
   ]
 }
