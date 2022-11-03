@@ -67,7 +67,7 @@ const Home = (props) => {
     }, [locationUpdate])
 
     return (
-        <div id='mainHomeDiv' className='main'>
+        <div id='mainHomeDiv' className='main' >
             <video src={secondVideo} autoPlay={true} muted loop/>                           
             <ThemeProvider theme={theme}>
                 <div style={{backgroundColor:theme.palette.decorative.darkGrey}} className='below-video'>
@@ -75,8 +75,9 @@ const Home = (props) => {
                 </div>                     
             </ThemeProvider>  
             {homeObjects.map(ho => (
-                <div key={ho.divId} id={ho.divId}>
+                <div key={ho.divId} id={ho.divId} style={{backgroundColor: theme.palette.decorative.darkGrey}}>
                     {ho.jsx}
+                    <hr width="75%"  size="50px" style={{marginTop: '0', marginBottom: '0'}}/>
                 </div>
             ))}
         </div>        
