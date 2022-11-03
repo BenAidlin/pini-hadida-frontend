@@ -7,13 +7,7 @@ const Profile = (props) => {
     const navigate = useNavigate();
     let isLoggedIn = userToken !== "" && userToken !== null ? true : false;
     //let userData = null;
-    let userData = {
-        profilePic: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/stunning-photo-of-camel-in-profile-dejavu-designs.jpg",
-        name: "ישראל ישראלי",
-        rank: "white",
-        timeInAcademy: "3",
-        lastSubscriptionDate: "02/03/2022",
-    };
+    let userData = props.userData;
 
     if(!isLoggedIn){
         navigate(process.env.REACT_APP_route_prefix);

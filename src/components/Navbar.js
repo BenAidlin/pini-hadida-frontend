@@ -28,6 +28,7 @@ export default function Navbar(props) {
   const showGoogleTooltip = props.showGoogleTooltip;
   const showedGoogleTooltip = props.showedGoogleTooltip;
   const [userToken, setUserToken] = useState(props.userToken);  
+  const userData = props.userData;
   const navTitle = "Hadida Academy";  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -204,7 +205,7 @@ export default function Navbar(props) {
                   <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="לפתיחת הגדרות משתמש">
                       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                        <Avatar alt="Remy Sharp" src={userData!=null ? userData.profilePic : ""} />
                       </IconButton>
                     </Tooltip>
                     <Menu
