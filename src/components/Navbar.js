@@ -223,17 +223,17 @@ export default function Navbar(props) {
                       open={Boolean(anchorElUser)}
                       onClose={handleCloseUserMenu}
                     >         
-                      {userMenues.map((page) => (
-                                                    
+                      {userMenues.map((page) => (                                                    
                               <Link  
                               key = {page.route}                               
                               style={{ textDecoration: 'none'}}
                               component={RouterLink} 
-                              to={page.route}                                 
+                              to={page.route}     
+                                                          
                               >
-                                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                                <MenuItem key={page.name} onClick={()=>{handleCloseNavMenu(); handleCloseUserMenu();}}>
                                   <Box sx={{ ml:'auto' }}>
-                                    <Typography textAlign="center">
+                                    <Typography textAlign="center" >
                                       {page.name}
                                     </Typography>
                                   </Box>                       
@@ -246,7 +246,7 @@ export default function Navbar(props) {
                               component={RouterLink} 
                               onClick={()=>{onLogout(); setUserToken(null);}}
                               >
-                      <MenuItem key={'התנתקות'} onClick={handleCloseNavMenu}>
+                      <MenuItem key={'התנתקות'} onClick={()=>{handleCloseNavMenu(); handleCloseUserMenu();}}>
                           <Box sx={{ ml:'auto' }}>
                           <Typography textAlign="center">                                                                                                                  
                                 התנתקות                              
@@ -261,8 +261,7 @@ export default function Navbar(props) {
                   <div>                                                          
                     <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>                
                       <GoogleOAuthProvider clientId={process.env.REACT_APP_google_client_id}>
-                          <GoogleLogin     
-                                            
+                          <GoogleLogin                                                 
                               theme={'filled_black'}
                               logo_alignment={'left'}
                               shape={'circle'}
