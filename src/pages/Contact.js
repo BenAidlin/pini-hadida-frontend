@@ -10,7 +10,7 @@ const Contact = (props) => {
         </p>;
     
     return (
-        <div style={{paddingTop: '10vh', minHeight: '86vh',
+        <div style={{paddingTop: '10vh', paddingBottom: '10vh',
         backgroundColor: theme.palette.decorative.darkGrey, overflowY:'hidden'}}         
         >
             <div>
@@ -23,7 +23,7 @@ const Contact = (props) => {
                     </Typography>                                
                 </ThemeProvider> 
             </div>
-            <div style={{height: '76vh',maxWidth:'80%' ,margin: 'auto' }}>
+            <div style={{maxWidth:'80%' ,margin: 'auto' }}>
                 <a href="https://www.google.com/maps/place/Hage'ulim+St+36,+Beersheba/@31.2478825,34.805854,17z/data=!4m6!3m5!1s0x150266460b7566b9:0xd65711f9b9069877!8m2!3d31.2476605!4d34.806007!16s%2Fg%2F11hdjsp8v9" target={"_blank"} rel="noreferrer">
                     <img src={locationImg} alt={''}></img>
                 </a>
