@@ -45,29 +45,13 @@ class Page {
 function App() {  
   
   // app states
-  const [userToken, setUserToken] = useState(localStorage.getItem('loginData'));  
-  const [userData, setUserData] = useState(null);
+  
+  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
   const [showGoogleTooltip, setShowGoogleTooltip] = useState(false);
   const [showScrollArrow, setShowScrollArrow] = useState(true);
-  
+  console.log(userData);
   // navbar updates showedGoogleTooltip on location change
   const showedGoogleTooltip = useRef(false);
-  
-  // on user token change
-  useEffect(()=>{
-    if(userToken!=null) {
-      setUserData({
-        profilePic: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/stunning-photo-of-camel-in-profile-dejavu-designs.jpg",
-        name: "ישראל ישראלי",
-        rank: "white",
-        timeInAcademy: "3",
-        lastSubscriptionDate: "02/03/2022",
-      })
-    }
-    else{
-      setUserData(null);
-    }
-  } , [userToken])
   
   // pages and redirects
   let defaultPage = new Page("דף הבית",process.env.REACT_APP_route_prefix + "/", <Home theme={darkTheme}></Home>);
@@ -81,17 +65,30 @@ function App() {
   ];
   let userMenues = [
     // user menu will always have log out option
-    new Page("פרופיל", process.env.REACT_APP_route_prefix + "/Profile", <Profile theme={darkTheme} userToken={userToken} userData={userData}></Profile>),
+    new Page("פרופיל", process.env.REACT_APP_route_prefix + "/Profile", <Profile theme={darkTheme} userData={userData}></Profile>),
   ]
   
   // methods
-  const onLogin = (userToken) => {
-    setUserToken(userToken);
+  const onLogin = async (userToken) => {
+    
     localStorage.setItem('loginData', userToken);
+    const res = await fetch(process.env.REACT_APP_api_route + '/users/google-login', {
+      method: 'POST',
+      body: JSON.stringify({
+        token: userToken
+      }),
+      headers:{
+        'Content-Type' : 'application/json'
+      }
+    });
+    let userData = await res.json()
+    setUserData(userData);
+    localStorage.setItem('userData', JSON.stringify(userData));
+    return userData;
   }
   const onLogout = () => {
-    setUserToken(null);
-    localStorage.removeItem('loginData');
+    setUserData(null);
+    localStorage.removeItem('userData');
   }
   const sleep = ms => new Promise(
     resolve => setTimeout(resolve, ms)
@@ -120,7 +117,6 @@ function App() {
         <Navbar theme={darkTheme} className={'navbar'} pages={navPages} userMenues={userMenues}                      
               onLogin = {(userToken) => onLogin(userToken)}
               onLogout = {() => onLogout()}
-              userToken = {userToken}
               userData = {userData}
               showGoogleTooltip = {showGoogleTooltip}
               showedGoogleTooltip = {showedGoogleTooltip}

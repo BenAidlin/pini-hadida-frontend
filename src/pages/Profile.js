@@ -2,13 +2,11 @@ import { useNavigate } from "react-router";
 import UserData from "../components/UserData";
 
 const Profile = (props) => {
-    const userToken = props.userToken;
+    let userData = props.userData;
     const theme = props.theme;
     const navigate = useNavigate();
-    let isLoggedIn = userToken !== "" && userToken !== null ? true : false;
-    //let userData = null;
-    let userData = props.userData;
-
+    let isLoggedIn = userData !== "" && userData !== null ? true : false;    
+    
     if(!isLoggedIn){
         navigate(process.env.REACT_APP_route_prefix);
     }

@@ -27,8 +27,7 @@ export default function Navbar(props) {
   const onLogout = props.onLogout;
   const showGoogleTooltip = props.showGoogleTooltip;
   const showedGoogleTooltip = props.showedGoogleTooltip;
-  const [userToken, setUserToken] = useState(props.userToken);  
-  const userData = props.userData;
+  const [userData, setUserData] = useState(props.userData);
   const navTitle = "Hadida Academy";  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -200,12 +199,12 @@ export default function Navbar(props) {
               
               {/* user menu in both when logged in, google login when not logged in */}
               {
-                userToken != null ? 
+                userData != null ? 
                 // logged in
                   <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="לפתיחת הגדרות משתמש">
                       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" src={userData!=null ? userData.profilePic : ""} />
+                        <Avatar alt="Remy Sharp" src={ userData!=null ? userData.profilePic : ""} />
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -245,7 +244,7 @@ export default function Navbar(props) {
                       <Link                                 
                               style={{ textDecoration: 'none'}}
                               component={RouterLink} 
-                              onClick={()=>{onLogout(); setUserToken(null);}}
+                              onClick={()=>{onLogout(); setUserData(null);}}
                               >
                       <MenuItem key={'התנתקות'} onClick={()=>{handleCloseNavMenu(); handleCloseUserMenu();}}>
                           <Box sx={{ ml:'auto' }}>
@@ -266,7 +265,7 @@ export default function Navbar(props) {
                               theme={'filled_black'}
                               logo_alignment={'left'}
                               shape={'circle'}
-                              onSuccess={(res)=>{console.log(res); onLogin(res.credential); setUserToken(res.credential);}}
+                              onSuccess={async (res)=>{console.log(res); setUserData(await onLogin(res.credential))}}
                               onError={()=>{alert("something went wrong with log in...")}}
                               cookiePolicy={'single_host_origin'}
                           ></GoogleLogin>            
@@ -279,7 +278,7 @@ export default function Navbar(props) {
                             theme={'filled_black'}
                             logo_alignment={'left'}
                             shape={'circle'}
-                            onSuccess={(res)=>{console.log(res); onLogin(res.credential); setUserToken(res.credential);}}
+                            onSuccess={async (res)=>{console.log(res); setUserData(await onLogin(res.credential))}}
                             onError={()=>{alert("something went wrong with log in...")}}
                             cookiePolicy={'single_host_origin'}
                         ></GoogleLogin>            
