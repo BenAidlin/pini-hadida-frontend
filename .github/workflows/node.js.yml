@@ -34,6 +34,7 @@ jobs:
           touch .env          
           echo REACT_APP_google_client_id=${{ secrets.GOOGLE_CLIENT_ID }} >> .env
           echo REACT_APP_route_prefix='/projects.pini-hadida-frontend' >> .env
+          echo REACT_APP_api_route='https://hadida-academy.herokuapp.com/api' >> .env
           cat .env
       - name: Build
         run: npm run build --if-present
