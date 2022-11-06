@@ -20,13 +20,25 @@ const UserData = (props)=> {
                 src={userData.profilePic}            
                 sx={{height: '40vh', width: '40vh', margin: 'auto'}}
             />
-            <img style={{maxWidth:'30%'}} src={require('./../extensions/images/profile/'+ userData.rank+'.png')} alt={"no rank"}></img>
+            {
+                userData.rank != null ?
+                <img style={{maxWidth:'30%'}} src={require('./../extensions/images/profile/'+ userData.rank+'.png')} alt={"no rank"}></img>
+                : ""                
+            }
+            
             <ThemeProvider theme={props.theme}>
                 <Typography
                     sx={{maxWidth: '80%', margin: 'auto',  color: theme.palette.decorative.lightBrown}}
                     variant='h6'
-                    >                                    
+                    >   
+                    {
+                    userData.inUsers ?                                 
                     {userWrittenDat}
+                    :
+                    <p dir="rtl">
+                        אינך רשום במערכת, אנה פנה לנציג מטעם המועדון...
+                    </p>                    
+                    }
                 </Typography>
             </ThemeProvider>
         </div>
