@@ -1,4 +1,5 @@
-import { Typography } from "@mui/material";
+import { Button, ThemeProvider, Typography, Modal } from "@mui/material";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import UserData from "../components/UserData";
 
@@ -6,8 +7,9 @@ const Profile = (props) => {
     let userData = props.userData;
     const theme = props.theme;
     const navigate = useNavigate();
+    const [adminModal, setAdminModal] = useState(false);
     let isLoggedIn = userData !== "" && userData !== null ? true : false;    
-    
+
     if(!isLoggedIn){
         navigate(process.env.REACT_APP_route_prefix);
     }
@@ -50,6 +52,28 @@ const Profile = (props) => {
                 : 
                 <h1>Not logged in</h1>
             }
+            {
+                userData.admin ? 
+                <div>
+                    <ThemeProvider theme={theme}>
+                    <Button onClick={()=>setAdminModal(true)} sx={{marginTop: '3%'}} variant="contained">לניהול תלמידים</Button>
+                    </ThemeProvider>
+                </div>
+                :
+                ""
+            }
+                <Modal sx={{display:'flex', alignItems:'center', justifyContent:'center'}}
+                open={adminModal}
+                onClose={()=> setAdminModal(false)}
+                
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                >
+                    <div>
+                        hi
+                    </div>
+                </Modal> 
+
         </div>
     );    
 }
