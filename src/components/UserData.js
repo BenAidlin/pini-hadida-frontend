@@ -33,11 +33,12 @@ const UserData = (props)=> {
                     >   
                     {
                     userData.inUsers ?                                 
-                    {userWrittenDat}
+                    userWrittenDat
                     :
                     <p dir="rtl">
                         אינך רשום במערכת, אנה פנה לנציג מטעם המועדון...
-                    </p>                    
+                    </p>
+                    
                     }
                 </Typography>
             </ThemeProvider>
