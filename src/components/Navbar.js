@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { Link, ThemeProvider, } from "@mui/material";
+import { Link, ThemeProvider, CircularProgress} from "@mui/material";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -28,6 +28,7 @@ export default function Navbar(props) {
   const showGoogleTooltip = props.showGoogleTooltip;
   const showedGoogleTooltip = props.showedGoogleTooltip;
   const [userData, setUserData] = useState(props.userData);
+  const [waitingForLogin, setWaitingForLoggin] = useState(false);
   const navTitle = "Hadida Academy";  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -53,6 +54,12 @@ export default function Navbar(props) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleGoogleLogin = async (res)=>{
+    setWaitingForLoggin(true);
+    setUserData(await onLogin(res.credential));
+    setWaitingForLoggin(false);
+  }
   const navigate = useNavigate();
 
 
@@ -257,6 +264,7 @@ export default function Navbar(props) {
                     </Menu>
                   </Box>          
                 :// not logged in    (big then small)       
+                !waitingForLogin ?
                 <Tooltip arrow open={showGoogleTooltip} title='להרשמה עם חשבון גוגל'>
                   <div>                                                          
                     <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>                
@@ -265,7 +273,9 @@ export default function Navbar(props) {
                               theme={'filled_black'}
                               logo_alignment={'left'}
                               shape={'circle'}
-                              onSuccess={async (res)=>{console.log(res); setUserData(await onLogin(res.credential))}}
+                              onSuccess={async (res)=>{
+                                handleGoogleLogin(res);
+                              }}
                               onError={()=>{alert("something went wrong with log in...")}}
                               cookiePolicy={'single_host_origin'}
                           ></GoogleLogin>            
@@ -278,7 +288,9 @@ export default function Navbar(props) {
                             theme={'filled_black'}
                             logo_alignment={'left'}
                             shape={'circle'}
-                            onSuccess={async (res)=>{console.log(res); setUserData(await onLogin(res.credential))}}
+                            onSuccess={async (res)=>{
+                              handleGoogleLogin(res);
+                            }}
                             onError={()=>{alert("something went wrong with log in...")}}
                             cookiePolicy={'single_host_origin'}
                         ></GoogleLogin>            
@@ -286,6 +298,8 @@ export default function Navbar(props) {
                     </Box>                           
                   </div>                  
                   </Tooltip>
+                  :
+                  <CircularProgress color="inherit" />
               }                            
             </Toolbar>
           </Container>
