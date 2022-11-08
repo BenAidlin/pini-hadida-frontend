@@ -3,22 +3,23 @@ import { Avatar, ThemeProvider, Typography,  } from "@mui/material";
 const UserData = (props)=> {
     const theme = props.theme;
     const userData = props.userData;
+    console.log(userData);
     const userWrittenDat = (
         <div dir="rtl">
         {"תאריך תחילת מנוי : " + userData.lastSubscriptionDate}
         <br></br>
-        {"וותק במועדון : " + userData.timeInAcademy + " חודשים" }
+        {"הצטרפות למועדון : " + userData.joinDate }
         </div>
     );
     return (
         <div>
             <Typography variant="h6" fontFamily={theme.typography.fontFamily}
             color={theme.typography.color} fontWeight={'600'} sx={{textDecoration: 'underline'}} dir={'rtl'}
-            >{"היי " + userData.name + "!"}</Typography>
+            >{userData.name}</Typography>
             <Avatar
                 alt="profilePic"
                 src={userData.profilePic}            
-                sx={{height: '40vh', width: '40vh', margin: 'auto'}}
+                sx={{height: '25vh', width: '25vh', margin: 'auto'}}
             />
             {
                 userData.rank != null ?
@@ -35,10 +36,7 @@ const UserData = (props)=> {
                     userData.inUsers ?                                 
                     userWrittenDat
                     :
-                    <p dir="rtl">
-                        אינך רשום במערכת, אנה פנה לנציג מטעם המועדון...
-                    </p>
-                    
+                    ""
                     }
                 </Typography>
             </ThemeProvider>

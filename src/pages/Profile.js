@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import UserData from "../components/UserData";
 
@@ -26,8 +27,23 @@ const Profile = (props) => {
                         </div>
                         :
                     <div>
-                        <UserData theme={theme} userData={userData}></UserData>
-                        
+                        <Typography                        
+                            sx={{maxWidth: '80%', margin: 'auto',  color: theme.palette.decorative.lightBrown}}
+                            variant='h6' fontFamily={theme.typography.fontFamily}
+                            >   
+                            { userData.inUsers ?
+                                <div dir="rtl">
+                                ברוך שובך,
+                                </div>          
+                                :
+                                <div dir="rtl">
+                                שלום! אינך רשום במערכת. <br></br>
+                                כתוצאה מהתחברותך, מנהלי המערכת יקבלו התראה ויוכלו לרשום אותך במערכת, במידת הצורך.
+                                </div>          
+                            }
+                                <UserData theme={theme} userData={userData}></UserData>
+                            
+                        </Typography>
                     </div>
                     }
                 </div>
