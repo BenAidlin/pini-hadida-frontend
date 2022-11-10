@@ -1,4 +1,4 @@
-import { Button, ThemeProvider, Typography, Modal, CircularProgress } from "@mui/material";
+import { Button, ThemeProvider, Typography, /*Modal,*/ CircularProgress } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import UserData from "../components/UserData";
