@@ -1,13 +1,20 @@
-import { Button, ThemeProvider, Typography, /*Modal,*/ CircularProgress } from "@mui/material";
+import { Backdrop, Box, Button, ThemeProvider, Typography, /*Modal,*/ CircularProgress, Dialog } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import AdminStudentManager from "../components/AdminStudentManager";
 import UserData from "../components/UserData";
+import Slide from '@mui/material/Slide';
+import * as React from 'react';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
 
 const Profile = (props) => {
     let userData = props.userData;
     const theme = props.theme;
     const navigate = useNavigate();
-    const [adminModal, setAdminModal] = useState(false);
+    const [manageStudents, setManageStudents] = useState(false);
     let isLoggedIn = userData !== "" && userData !== null ? true : false;        
     if(!isLoggedIn){
         navigate(process.env.REACT_APP_route_prefix);
@@ -16,7 +23,7 @@ const Profile = (props) => {
         // send server request for data and apply to userData
     }
     const openAdminModal = async () => {
-        setAdminModal(true);
+        setManageStudents(true);
         const usersReq = await fetch(process.env.REACT_APP_api_route + '/users', {
             method: 'GET',
             headers:{
@@ -33,23 +40,33 @@ const Profile = (props) => {
         });
         let potentials = await potentialsReq.json();
         console.log(potentials);
-        setAdminModalData(
-            <div style={{margin: 'left', backgroundColor: theme.palette.decorative.darkGrey, minHeight: '100vh'}}>            
-                <div style={{width: '30vw',  float: 'left' }}>
-                    משתמשים רשומים
-                    {users.map(u => <UserData theme={theme} userData={u}></UserData>)}
-                </div>
-                <div style={{width: '30vw', float: 'left' }}>
-                    משתמשים שהתחברו
-                    {potentials.map(u => <UserData theme={theme} userData={u}></UserData>)}
+        setAdminModalData(            
+            <div style={{ backgroundColor: theme.palette.decorative.darkGrey, paddingTop: '3%'}}>            
+                <Button 
+                sx={{position: 'fixed'}}
+                onClick={() => setManageStudents(false)} variant="contained">חזרה לדף הפרופיל</Button>
+                <div>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} justifyContent="center">                
+                        <AdminStudentManager theme={theme} users={users} potentials={potentials}></AdminStudentManager>                
+                    </Box>
+                    <Box sx={{ flexDirection: 'column', flexGrow: 1, display: { xs: 'flex', md: 'none' } }} justifyContent="center">                
+                        <AdminStudentManager theme={theme} users={users} potentials={potentials}></AdminStudentManager>                
+                    </Box>                
                 </div>
             </div>
         );
         
     }
     const [adminModalData, setAdminModalData] = useState(
-        <div>
+        <div dir='rtl'>
+            
+            <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={true}            
+            >
+                טוען תלמידים...
             <CircularProgress color="inherit" />
+            </Backdrop>
         </div>
     );
     
@@ -86,7 +103,7 @@ const Profile = (props) => {
                     }
                 </div>
                 : 
-                <h1>Not logged in</h1>
+                ""
             }
             {
                 userData.admin ? 
@@ -96,19 +113,16 @@ const Profile = (props) => {
                     </ThemeProvider>
                 </div>
                 :
-                ""
+                ""                
             }
 
-            {adminModal ? adminModalData : ""}
-                {/* <Modal sx={{maxWidth:'100%', maxHeight:'100%'}}
-                open={adminModal}
-                onClose={()=> setAdminModal(false)}
-                
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-                >
+            <Dialog open={manageStudents} fullScreen TransitionComponent={Transition}>
+                <ThemeProvider theme={theme}>                                        
                     {adminModalData}
-                </Modal>  */}
+                </ThemeProvider>
+            </Dialog>
+
+            
 
         </div>
     );    
