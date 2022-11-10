@@ -34,7 +34,7 @@ const Profile = (props) => {
         let potentials = await potentialsReq.json();
         console.log(potentials);
         setAdminModalData(
-            <div style={{margin: 'left'}}>            
+            <div style={{margin: 'left', backgroundColor: theme.palette.decorative.darkGrey, minHeight: '100vh'}}>            
                 <div style={{width: '30vw',  float: 'left' }}>
                     משתמשים רשומים
                     {users.map(u => <UserData theme={theme} userData={u}></UserData>)}
@@ -98,7 +98,9 @@ const Profile = (props) => {
                 :
                 ""
             }
-                <Modal sx={{display:'flex', alignItems:'center', justifyContent:'center'}}
+
+            {adminModal ? adminModalData : ""}
+                {/* <Modal sx={{maxWidth:'100%', maxHeight:'100%'}}
                 open={adminModal}
                 onClose={()=> setAdminModal(false)}
                 
@@ -106,7 +108,7 @@ const Profile = (props) => {
                 aria-describedby="modal-modal-description"
                 >
                     {adminModalData}
-                </Modal> 
+                </Modal>  */}
 
         </div>
     );    
