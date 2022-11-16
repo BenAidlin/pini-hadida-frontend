@@ -7,7 +7,6 @@ import Gallery from './pages/Gallery';
 import { createTheme } from "@mui/material";
 import { grey, brown } from '@mui/material/colors';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import scrolldown from './extensions/images/scrolldown-gif4.gif'
 import { useEffect } from 'react';
 import FloatingActionButtons from './components/FloatingActionButtons';
 
@@ -47,11 +46,11 @@ function App() {
   // app states
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
   const [showGoogleTooltip, setShowGoogleTooltip] = useState(false);
-  const [showScrollArrow, setShowScrollArrow] = useState(true);
+  
   console.log(userData);
   // navbar updates showedGoogleTooltip on location change
   const showedGoogleTooltip = useRef(false);
-  
+
   // pages and redirects
   let defaultPage = new Page("דף הבית",process.env.REACT_APP_route_prefix + "/", <Home theme={darkTheme}></Home>);
   let navPages = [  
@@ -95,9 +94,6 @@ function App() {
   const onAppScroll = async (e) =>{      
     // every time the app scrolls, if in current page never showed tool tip show it
     // navbar updates showedGoogleTooltip on location change
-    if(window.scrollY > 100 )
-      setShowScrollArrow(false);
-    else setShowScrollArrow(true);
     if (!showedGoogleTooltip.current){
       setShowGoogleTooltip(true);
       await sleep(2000);
@@ -120,9 +116,6 @@ function App() {
               showGoogleTooltip = {showGoogleTooltip}
               showedGoogleTooltip = {showedGoogleTooltip}
         />
-        <div className='scrollDownImageDiv'>
-          <img style={{display: showScrollArrow ? 'block' : 'none', cursor: 'unset'}} src={scrolldown} alt={"scroll down to see mode"}></img>  
-        </div>        
         <div className='contactFabDiv'>
           <FloatingActionButtons></FloatingActionButtons>
         </div>

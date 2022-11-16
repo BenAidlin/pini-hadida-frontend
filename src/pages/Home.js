@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useCallback } from 'react';
 import Contact from './Contact';
+import scrolldown from '../extensions/images/scrolldown-gif4.gif'
 
 
 const Home = (props) => {
@@ -47,6 +48,17 @@ const Home = (props) => {
             ref: document.getElementById("Achievements")
          }
     ]);
+    const [showScrollArrow, setShowScrollArrow] = useState(true);
+    const onAppScroll = async (e) =>{      
+        // every time the app scrolls, if in current page never showed tool tip show it
+        // navbar updates showedGoogleTooltip on location change
+        if(window.scrollY > 100 )
+          setShowScrollArrow(false);
+        else setShowScrollArrow(true);
+      };
+    useEffect(()=>{
+        window.addEventListener('scroll', onAppScroll, true);
+    })
     const location = useLocation();
     const locationUpdate = useCallback(() => {
         for(let ho of homeObjects){
@@ -68,7 +80,11 @@ const Home = (props) => {
 
     return (
         <div id='mainHomeDiv' className='main' >
-            <video src={secondVideo} autoPlay={true} muted loop/>                           
+            <video src={secondVideo} autoPlay={true} muted loop/>   
+            <div className='scrollDownImageDiv'>
+              <img style={{display: showScrollArrow ? 'block' : 'none', cursor: 'unset'}} src={scrolldown} alt={"scroll down to see mode"}></img>  
+            </div>        
+                          
             <ThemeProvider theme={theme}>
                 <div style={{backgroundColor:theme.palette.decorative.darkGrey}} className='below-video'>
                     <MartialArtsCards></MartialArtsCards>
