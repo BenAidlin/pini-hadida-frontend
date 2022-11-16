@@ -45,7 +45,6 @@ class Page {
 function App() {  
   
   // app states
-  console.log(window);
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
   const [showGoogleTooltip, setShowGoogleTooltip] = useState(false);
   const [showScrollArrow, setShowScrollArrow] = useState(true);
