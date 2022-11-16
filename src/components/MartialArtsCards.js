@@ -10,10 +10,10 @@ const MartialArtsCards = (props) => {
     /* eslint-disable */
     const theme = props.theme;
     /* eslint-enable */
-    const mmaText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
-    const bjjText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
-    const muaythaiText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
-    const selfdefenceText = "כל מיני מילים יפות שאפשר להגיד על האומנות לחימה הזאת וכן כן וכן הלאה ועוד מילים יפות";
+    const mmaText = "לחימה משולבת. ספורט הלחימה המתתפתח והגדול בעולם, משלב מספר סגנונות לחימה בינהם אגרוף קלאסי, אגרוף תאילנדי, ג'יוג'יטסו ברזילאי והיאבקות.";
+    const bjjText = "אומנות לחימה המגיעה מברזיל, שם פיתחה אותה משפחת גרייסי. מקורה בג'יוג'יטסו היפני ובג'ודו. אומנות לחימה זו עושה שימוש רב בהפלות, בריחים ובנעילות, וכן במנוף כדי להשיג יתרון על היריב.";
+    const muaythaiText = "אומנות שמונת האיברים מתאילנד, עושה שימוש באגרופים, בעיטות, ברכיים וכן מרפקים. אגרוף תאילנדי הוא הספורט הלאומי של תאילנד.";
+    const selfdefenceText = "קרב מגע היא תורת לחימה ישראלית המושתתת על הגנה עצמית. אומנות לחימה זו באה לעזור בהגנה עצמית בלבד, ואין לה היבטים של ספורט תחרותי.";
     const bjjCard = <CardActionArea>
                         <CardMedia  sx={{cursor: 'auto'}}
                         component="img"
@@ -25,7 +25,7 @@ const MartialArtsCards = (props) => {
                         <Typography gutterBottom variant="h5" component="div">
                             ג'יוג'יטסו ברזילאי
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="text.secondary" dir='rtl'>
                             {bjjText}
                         </Typography>
                         </CardContent>
@@ -41,7 +41,7 @@ const MartialArtsCards = (props) => {
                         <Typography gutterBottom variant="h5" component="div">
                             MMA
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="text.secondary" dir='rtl'>
                             {mmaText}
                         </Typography>
                         </CardContent>
@@ -57,7 +57,7 @@ const MartialArtsCards = (props) => {
                             <Typography gutterBottom variant="h5" component="div">
                                 אגרוף תאילנדי
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography variant="body2" color="text.secondary" dir='rtl'>
                                 {muaythaiText}
                             </Typography>
                             </CardContent>
@@ -73,7 +73,7 @@ const MartialArtsCards = (props) => {
                                 <Typography gutterBottom variant="h5" component="div">
                                     הגנה עצמית
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography variant="body2" color="text.secondary" dir='rtl'>
                                     {selfdefenceText}
                                 </Typography>
                                 </CardContent>
