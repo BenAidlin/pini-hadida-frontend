@@ -40,7 +40,6 @@ const TabPanel = (props) => {
                 {hourProps.hour}
                 </div>}}
             renderEvent={(eventProps)=>{
-            console.log(eventProps);
             return (
                 <div
                 className={eventProps.defaultAttributes.className}

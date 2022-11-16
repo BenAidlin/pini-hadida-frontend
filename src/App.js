@@ -45,7 +45,7 @@ class Page {
 function App() {  
   
   // app states
-  
+  console.log(window);
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('userData')));
   const [showGoogleTooltip, setShowGoogleTooltip] = useState(false);
   const [showScrollArrow, setShowScrollArrow] = useState(true);
@@ -96,7 +96,7 @@ function App() {
   const onAppScroll = async (e) =>{      
     // every time the app scrolls, if in current page never showed tool tip show it
     // navbar updates showedGoogleTooltip on location change
-    if(window.scrollY > 100)
+    if(window.scrollY > 100 )
       setShowScrollArrow(false);
     else setShowScrollArrow(true);
     if (!showedGoogleTooltip.current){
