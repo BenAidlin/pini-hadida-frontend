@@ -4,8 +4,9 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import ManageAccountsSharpIcon from '@mui/icons-material/ManageAccountsSharp';
 import PersonAddSharpIcon from '@mui/icons-material/PersonAddSharp';
-import { Paper, Typography, } from "@mui/material";
+import {  Paper, Typography, } from "@mui/material";
 import { Box } from "@mui/system";
+import AddStudentDialog from "./AddStudentDialog";
 
 const AdminStudentManager = (props) => {
     const users = props.users;
@@ -29,6 +30,17 @@ const AdminStudentManager = (props) => {
         listOfPoten[listOfPoten.length - 1].push(poten);        
     });
 
+    const [addStudentDialogOpen, setAddStudentDialogOpen] = useState(false);
+    const [addStudentDialog, setAddStudentDialog] = useState('');
+
+    const handlePotentialClick = (potentialData)=> {
+        setAddStudentDialog(
+            <div style={{backgroundColor: theme.palette.decorative.darkGrey}}>
+                <AddStudentDialog onClose={()=>setAddStudentDialogOpen(false)} theme={theme} potentialData={potentialData}></AddStudentDialog>
+            </div>
+        );
+        setAddStudentDialogOpen(true);
+    }
     return (
         <div style={{ backgroundColor: theme.palette.decorative.darkGrey, textAlign: 'center', minHeight: '100vh'}}>            
         <Typography variant="h5" fontFamily={theme.typography.fontFamily}
@@ -54,10 +66,14 @@ const AdminStudentManager = (props) => {
                 <Box sx={{ display: 'grid', gridTemplateColumns: {
                     xs: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)'}, 
                     paddingBottom: '10vh', }} justifyContent='center'  alignItems="center">
-                    {potentials.map(p => <Box justifyContent='center'><UserData theme={theme} userData={p}></UserData></Box>)}
+                    {potentials.map(p => <Box onClick={()=>handlePotentialClick(p)} justifyContent='center'><UserData theme={theme} userData={p}></UserData></Box>)}
                 </Box>                
-            </div>  
-
+            </div>
+            {
+                addStudentDialogOpen ? 
+                addStudentDialog : ''
+            }  
+            
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
             <BottomNavigation
                 showLabels
