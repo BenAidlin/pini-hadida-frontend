@@ -6,21 +6,32 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import UserData from "../components/UserData";
+import UserData from "./UserData";
 import { MenuItem, Select, InputLabel } from '@mui/material';
 import { useState } from 'react';
 import {format} from 'date-fns';
 import { useEffect } from 'react';
 
-export default function AddStudentDialog(props) {
+export default function AdjustStudentDialog(props) {
   const [open, setOpen] = React.useState(true);
   const theme = props.theme;
-  const potentialData = props.potentialData;
+  const userData = props.userData;
   const onClose = props.onClose;
-  const [ddValue, setddValue] = useState('white');
-  const [subDate, setSubDate] = useState(format(new Date(), 'yyyy-MM-dd'));
+  const okButton = props.okButton;
+  const title = props.title;
+  const text = props.text;
+  const [ddValue, setddValue] = useState( userData.rank != null ?
+    userData.rank :
+    'white');
+  const [subDate, setSubDate] = useState( userData.lastSubscriptionDate != null ?
+    userData.lastSubscriptionDate : 
+    format(new Date(), 'yyyy-MM-dd')
+    );
   const [subTime, setSubTime] = useState(3);
-  const [joinDate, setJoinDate] = useState(format(new Date(), 'yyyy-MM-dd'));
+  const [joinDate, setJoinDate] = useState( userData.joinDate != null ? 
+    userData.joinDate : 
+    format(new Date(), 'yyyy-MM-dd'
+    ));
   const [addDisabled, setAddDisabled] = useState(true);
   const belts = ['white', 'blue', 'purple', 'brown', 'black']
   const handleClose = () => {
@@ -34,7 +45,7 @@ export default function AddStudentDialog(props) {
     // send request..  
     setAddDisabled(false);
     const addReq = await fetch(process.env.REACT_APP_api_route + '/users/user/' 
-        + potentialData._id + '?rank='+ddValue 
+        + userData._id + '?rank='+ddValue 
         + '&lastSubscriptionDate='+subDate
         + '&joinDate='+joinDate
         + '&subscriptionTime='+subTime.toString(), {
@@ -52,13 +63,13 @@ export default function AddStudentDialog(props) {
   return (
     <div >
       <Dialog open={open} onClose={handleClose} dir='rtl'>
-        <DialogTitle dir={'rtl'}>הוספת תלמיד - {potentialData.name}</DialogTitle>
+        <DialogTitle dir={'rtl'}>{title}</DialogTitle>
         <DialogContent>
           <DialogContentText dir='rtl'>
-            להוספת תלמיד יש להוסיף תאריך כניסה למועדון, תאריך תחילת מנוי ודרגת התלמיד.
+            {text}
           </DialogContentText>
           <div >
-                <UserData userData={potentialData} theme={theme}></UserData>
+                <UserData userData={userData} theme={theme}></UserData>
             </div>
           <TextField
             autoFocus
@@ -107,7 +118,7 @@ export default function AddStudentDialog(props) {
         >
             {
                 belts.map(b => (
-                    <MenuItem dir='rtl' value={b}><img style={{maxWidth:'15%'}} src={require('./../extensions/images/profile/'+ b+'.png')} alt={"no rank"}></img></MenuItem>
+                    <MenuItem key={b} dir='rtl' value={b}><img style={{maxWidth:'15vw'}} src={require('./../extensions/images/profile/'+ b+'.png')} alt={"no rank"}></img></MenuItem>
                 ))
             }            
         </Select>
@@ -116,7 +127,7 @@ export default function AddStudentDialog(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>ביטול</Button>
-          <Button disabled={addDisabled} onClick={addStudent}>הוסף תלמיד</Button>
+          <Button disabled={addDisabled} onClick={addStudent}>{okButton}</Button>
         </DialogActions>
       </Dialog>
     </div>

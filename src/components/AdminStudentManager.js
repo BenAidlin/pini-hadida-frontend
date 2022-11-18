@@ -6,7 +6,7 @@ import ManageAccountsSharpIcon from '@mui/icons-material/ManageAccountsSharp';
 import PersonAddSharpIcon from '@mui/icons-material/PersonAddSharp';
 import {  Paper, Typography, } from "@mui/material";
 import { Box } from "@mui/system";
-import AddStudentDialog from "./AddStudentDialog";
+import AdjustStudentDialog from "./AdjustStudentDialog";
 
 const AdminStudentManager = (props) => {
     const users = props.users;
@@ -32,14 +32,28 @@ const AdminStudentManager = (props) => {
 
     const [addStudentDialogOpen, setAddStudentDialogOpen] = useState(false);
     const [addStudentDialog, setAddStudentDialog] = useState('');
-
+    const [updateStudentDialogOpen, setUpdateStudentDialogOpen] = useState(false);
+    const [updateStudentDialog, setUpdateStudentDialog] = useState('');
+    
     const handlePotentialClick = (potentialData)=> {
         setAddStudentDialog(
             <div style={{backgroundColor: theme.palette.decorative.darkGrey}}>
-                <AddStudentDialog onClose={()=>setAddStudentDialogOpen(false)} theme={theme} potentialData={potentialData}></AddStudentDialog>
+                <AdjustStudentDialog onClose={()=>setAddStudentDialogOpen(false)} theme={theme} userData={potentialData}
+                    okButton={'הוסף תלמיד'} title={'הוספת תלמיד - ' + potentialData.name} text={'להוספת תלמיד יש להוסיף תאריך כניסה למועדון, תאריך תחילת מנוי ודרגת התלמיד.'}
+                ></AdjustStudentDialog>
             </div>
         );
         setAddStudentDialogOpen(true);
+    }
+    const handleUserClick = (userData)=> {
+        setUpdateStudentDialog(
+            <div style={{backgroundColor: theme.palette.decorative.darkGrey}}>
+                <AdjustStudentDialog onClose={()=>setUpdateStudentDialogOpen(false)} theme={theme} userData={userData}
+                    okButton={'עדכן תלמיד'} title={'עידכון פרטי תלמיד - ' + userData.name} text={''}
+                ></AdjustStudentDialog>
+            </div>
+        );
+        setUpdateStudentDialogOpen(true);
     }
     return (
         <div style={{ backgroundColor: theme.palette.decorative.darkGrey, textAlign: 'center', minHeight: '100vh'}}>            
@@ -54,7 +68,7 @@ const AdminStudentManager = (props) => {
                 <Box sx={{ display: 'grid', gridTemplateColumns: {
                     xs: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)'}, 
                     paddingBottom: '10vh'}} justifyContent='center' alignItems="center">
-                    {users.map(u =><Box justifyContent='center'><UserData theme={theme} userData={u}></UserData></Box>)}
+                    {users.map(u =><Box key={u._id} onClick={()=>handleUserClick(u)} justifyContent='center'><UserData theme={theme} userData={u}></UserData></Box>)}
                 </Box>                
             </div>    
 
@@ -66,14 +80,17 @@ const AdminStudentManager = (props) => {
                 <Box sx={{ display: 'grid', gridTemplateColumns: {
                     xs: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)'}, 
                     paddingBottom: '10vh', }} justifyContent='center'  alignItems="center">
-                    {potentials.map(p => <Box onClick={()=>handlePotentialClick(p)} justifyContent='center'><UserData theme={theme} userData={p}></UserData></Box>)}
+                    {potentials.map(p => <Box key={p._id} onClick={()=>handlePotentialClick(p)} justifyContent='center'><UserData theme={theme} userData={p}></UserData></Box>)}
                 </Box>                
             </div>
             {
                 addStudentDialogOpen ? 
                 addStudentDialog : ''
             }  
-            
+            {
+                updateStudentDialogOpen ?
+                updateStudentDialog : ''
+            }
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
             <BottomNavigation
                 showLabels

@@ -43,7 +43,7 @@ const Profile = (props) => {
         setAdminModalData(            
             <div style={{ backgroundColor: theme.palette.decorative.darkGrey, paddingTop: '3%'}}>            
                 <Button 
-                sx={{position: 'fixed'}}
+                sx={{position: 'fixed', right:'2vw'}}
                 onClick={() => setManageStudents(false)} variant="contained">חזרה לדף הפרופיל</Button>
                 <div>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} justifyContent="center">                
