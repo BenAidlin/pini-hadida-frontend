@@ -18,6 +18,7 @@ export default function AdjustStudentDialog(props) {
   const userData = props.userData;
   const onClose = props.onClose;
   const okButton = props.okButton;
+  const okAction = props.okAction;
   const title = props.title;
   const text = props.text;
   const [ddValue, setddValue] = useState( userData.rank != null ?
@@ -40,22 +41,6 @@ export default function AdjustStudentDialog(props) {
   };
   const handleDDChange = (value) => {    
     setddValue(value.target.value);
-  }
-  const addStudent = async () => {
-    // send request..  
-    setAddDisabled(false);
-    const addReq = await fetch(process.env.REACT_APP_api_route + '/users/user/' 
-        + userData._id + '?rank='+ddValue 
-        + '&lastSubscriptionDate='+subDate
-        + '&joinDate='+joinDate
-        + '&subscriptionTime='+subTime.toString(), {
-        method: 'POST',
-        headers:{
-          'Content-Type' : 'application/json'
-        }
-    });
-    console.log(addReq);
-    setOpen(false);
   }
   useEffect(()=>{
     if(addDisabled && joinDate && subTime && subDate && ddValue) setAddDisabled(false);
@@ -127,7 +112,7 @@ export default function AdjustStudentDialog(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>ביטול</Button>
-          <Button disabled={addDisabled} onClick={addStudent}>{okButton}</Button>
+          <Button disabled={addDisabled} onClick={okAction}>{okButton}</Button>
         </DialogActions>
       </Dialog>
     </div>

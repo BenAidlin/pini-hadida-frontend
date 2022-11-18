@@ -40,6 +40,7 @@ const AdminStudentManager = (props) => {
             <div style={{backgroundColor: theme.palette.decorative.darkGrey}}>
                 <AdjustStudentDialog onClose={()=>setAddStudentDialogOpen(false)} theme={theme} userData={potentialData}
                     okButton={'הוסף תלמיד'} title={'הוספת תלמיד - ' + potentialData.name} text={'להוספת תלמיד יש להוסיף תאריך כניסה למועדון, תאריך תחילת מנוי ודרגת התלמיד.'}
+                    okAction={addStudent}
                 ></AdjustStudentDialog>
             </div>
         );
@@ -50,10 +51,29 @@ const AdminStudentManager = (props) => {
             <div style={{backgroundColor: theme.palette.decorative.darkGrey}}>
                 <AdjustStudentDialog onClose={()=>setUpdateStudentDialogOpen(false)} theme={theme} userData={userData}
                     okButton={'עדכן תלמיד'} title={'עידכון פרטי תלמיד - ' + userData.name} text={''}
+                    okAction={updateStudent} 
                 ></AdjustStudentDialog>
             </div>
         );
         setUpdateStudentDialogOpen(true);
+    }
+    const addStudent = async () => {        
+        /*
+        const addReq = await fetch(process.env.REACT_APP_api_route + '/users/user/' 
+            + userData._id + '?rank='+ddValue 
+            + '&lastSubscriptionDate='+subDate
+            + '&joinDate='+joinDate
+            + '&subscriptionTime='+subTime.toString(), {
+            method: 'POST',
+            headers:{
+              'Content-Type' : 'application/json'
+            }
+        });
+        console.log(addReq);
+        setOpen(false);*/
+    }
+    const updateStudent = async () => {
+
     }
     return (
         <div style={{ backgroundColor: theme.palette.decorative.darkGrey, textAlign: 'center', minHeight: '100vh'}}>            
