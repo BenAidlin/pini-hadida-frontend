@@ -1,16 +1,17 @@
 import { Avatar, ThemeProvider, Typography,  } from "@mui/material";
+import { format } from "date-fns";
 
 const UserData = (props)=> {
     const theme = props.theme;
     const userData = props.userData;
     console.log(userData);
-    const userWrittenDat = (
+    const userWrittenDat = userData.lastSubscriptionDate != null &&  userData.joinDate != null ? (
         <div dir="rtl">
-        {"תאריך תחילת מנוי : " + userData.lastSubscriptionDate}
+        {"תאריך תחילת מנוי : " + format(new Date(userData.lastSubscriptionDate), 'dd/MM/yyyy')}
         <br></br>
-        {"הצטרפות למועדון : " + userData.joinDate }
+        {"הצטרפות למועדון : " + format(new Date(userData.joinDate), 'dd/MM/yyyy') }
         </div>
-    );
+    ) : '';
     return (
         <div>
             <Typography variant="h6" fontFamily={theme.typography.fontFamily}
