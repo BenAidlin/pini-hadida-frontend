@@ -8,34 +8,31 @@ import {  Paper, Typography, } from "@mui/material";
 import { Box } from "@mui/system";
 import AdjustStudentDialog from "./AdjustStudentDialog";
 import ApiUtils from "../utilities/ApiUtils";
+import { Backdrop, CircularProgress } from "@mui/material";
+import { useEffect } from "react";
 
 const AdminStudentManager = (props) => {
-    const users = props.users;
-    const potentials = props.potentials;
+    const [users, setUsers] = useState([]);
+    const [potentials,setPotentials] = useState([]);
     const theme = props.theme;
-    const [onSigned, setOnSigned] = useState(true);    
-    const listOfUsers = []; 
-    
-    users.forEach((user, index) => {
-        if(index % 3 === 0){
-            listOfUsers.push([]);
-        }
-        listOfUsers[listOfUsers.length - 1].push(user);        
-    });
-
-    const listOfPoten = []; 
-    potentials.forEach((poten, index) => {
-        if(index % 3 === 0){
-            listOfPoten.push([]);
-        }
-        listOfPoten[listOfPoten.length - 1].push(poten);        
-    });
+    const [onSigned, setOnSigned] = useState(true);         
+    const [loading, setLoading] = useState(true);
 
     const [addStudentDialogOpen, setAddStudentDialogOpen] = useState(false);
     const [addStudentDialog, setAddStudentDialog] = useState('');
     const [updateStudentDialogOpen, setUpdateStudentDialogOpen] = useState(false);
     const [updateStudentDialog, setUpdateStudentDialog] = useState('');
     
+    const update = async () => {  
+        setLoading(true);      
+        let userTask = ApiUtils.getAllUsers();
+        let potenTask = ApiUtils.getAllPotentials();
+        let all = Promise.all([userTask, potenTask]).then((r) => {
+            setUsers(r[0]); setPotentials(r[1]);
+        });
+        await all;
+        setLoading(false);
+    }
     const handlePotentialClick = (potentialData)=> {
         setAddStudentDialog(
             <div style={{backgroundColor: theme.palette.decorative.darkGrey}}>
@@ -58,15 +55,28 @@ const AdminStudentManager = (props) => {
         );
         setUpdateStudentDialogOpen(true);
     }
-    const addStudent = async (id, rank, subDate, joinDate, subTime) => {        
+    const addStudent = async (id, rank, subDate, joinDate, subTime) => {  
+        setLoading(true);
         await ApiUtils.addNewStudent(id, rank, subDate, joinDate, subTime);
+        await update();
     }
     const updateStudent = async (id, rank, subDate, joinDate, subTime) => {
+        setLoading(true);
         await ApiUtils.updateStudent(id, rank, subDate, joinDate,subTime);
+        await update();
     }
+    useEffect(()=>{
+        update();        
+    },[])
     return (
         <div style={{ backgroundColor: theme.palette.decorative.darkGrey, textAlign: 'center', minHeight: '100vh'}}>            
-        
+        <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={loading}            
+            >
+                מעדכן נתונים...
+            <CircularProgress color="inherit" />
+        </Backdrop>
         <Typography variant="h5" fontFamily={theme.typography.fontFamily}
             color={theme.palette.decorative.lightBrown} dir={'rtl'}>
             <div style={{display: onSigned ? 'block' : 'none'}}>

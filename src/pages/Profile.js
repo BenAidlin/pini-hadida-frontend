@@ -1,11 +1,10 @@
-import { Backdrop, Box, Button, ThemeProvider, Typography, /*Modal,*/ CircularProgress, Dialog } from "@mui/material";
+import { Box, Button, ThemeProvider, Typography, Dialog } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import AdminStudentManager from "../components/AdminStudentManager";
 import UserData from "../components/UserData";
 import Slide from '@mui/material/Slide';
 import * as React from 'react';
-import ApiUtils from "../utilities/ApiUtils";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -20,43 +19,9 @@ const Profile = (props) => {
     if(!isLoggedIn){
         navigate(process.env.REACT_APP_route_prefix);
     }
-    else {
-        // send server request for data and apply to userData
-    }
     const openAdminModal = async () => {
-        setManageStudents(true);
-        let users = await ApiUtils.getAllUsers();
-        let potentials = await ApiUtils.getAllPotentials();
-
-        setAdminModalData(            
-            <div style={{ backgroundColor: theme.palette.decorative.darkGrey, paddingTop: '3%'}}>            
-                <Button 
-                sx={{position: 'fixed', right:'2vw'}}
-                onClick={() => setManageStudents(false)} variant="contained">חזרה לדף הפרופיל</Button>
-                <div>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} justifyContent="center">                
-                        <AdminStudentManager theme={theme} users={users} potentials={potentials}></AdminStudentManager>                
-                    </Box>
-                    <Box sx={{ flexDirection: 'column', flexGrow: 1, display: { xs: 'flex', md: 'none' } }} justifyContent="center">                
-                        <AdminStudentManager theme={theme} users={users} potentials={potentials}></AdminStudentManager>                
-                    </Box>                
-                </div>
-            </div>
-        );
-        
+        setManageStudents(true);        
     }
-    const [adminModalData, setAdminModalData] = useState(
-        <div dir='rtl'>
-            
-            <Backdrop
-            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={true}            
-            >
-                טוען תלמידים...
-            <CircularProgress color="inherit" />
-            </Backdrop>
-        </div>
-    );
     
     return (
         <div style={{paddingTop: '14vh', minHeight: '86vh', backgroundColor: theme.palette.decorative.darkGrey}} >
@@ -106,7 +71,16 @@ const Profile = (props) => {
 
             <Dialog open={manageStudents} fullScreen TransitionComponent={Transition}>
                 <ThemeProvider theme={theme}>                                        
-                    {adminModalData}
+                    <div style={{ backgroundColor: theme.palette.decorative.darkGrey, paddingTop: '3%'}}>            
+                        <Button 
+                            sx={{position: 'fixed', right:'2vw'}}
+                            onClick={() => setManageStudents(false)} variant="contained">חזרה לדף הפרופיל</Button>
+                        <div>
+                            <Box sx={{ flexDirection: 'column', flexGrow: 1, display: { xs: 'flex', md: 'flex' } }} justifyContent="center">                
+                                <AdminStudentManager theme={theme}></AdminStudentManager>                
+                            </Box>                
+                        </div>
+                    </div>
                 </ThemeProvider>
             </Dialog>
 
