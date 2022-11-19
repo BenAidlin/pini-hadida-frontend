@@ -58,23 +58,10 @@ const AdminStudentManager = (props) => {
         setUpdateStudentDialogOpen(true);
     }
     const addStudent = async () => {        
-        alert('add student')
-        /*
-        const addReq = await fetch(process.env.REACT_APP_api_route + '/users/user/' 
-            + userData._id + '?rank='+ddValue 
-            + '&lastSubscriptionDate='+subDate
-            + '&joinDate='+joinDate
-            + '&subscriptionTime='+subTime.toString(), {
-            method: 'POST',
-            headers:{
-              'Content-Type' : 'application/json'
-            }
-        });
-        console.log(addReq);
-        setOpen(false);*/
+        alert('add student');
     }
     const updateStudent = async () => {
-
+        alert('update student');
     }
     return (
         <div style={{ backgroundColor: theme.palette.decorative.darkGrey, textAlign: 'center', minHeight: '100vh'}}>            

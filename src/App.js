@@ -9,6 +9,7 @@ import { grey, brown } from '@mui/material/colors';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import { useEffect } from 'react';
 import FloatingActionButtons from './components/FloatingActionButtons';
+import ApiUtils from './utilities/ApiUtils';
 
 // app theme
 const darkTheme = createTheme({
@@ -67,19 +68,9 @@ function App() {
   ]
   
   // methods
-  const onLogin = async (userToken) => {
-    
+  const onLogin = async (userToken) => {    
     localStorage.setItem('loginData', userToken);
-    const res = await fetch(process.env.REACT_APP_api_route + '/users/google-login', {
-      method: 'POST',
-      body: JSON.stringify({
-        token: userToken
-      }),
-      headers:{
-        'Content-Type' : 'application/json'
-      }
-    });
-    let userData = await res.json()
+    let userData = await ApiUtils.getUserByToken(userToken);
     setUserData(userData);
     localStorage.setItem('userData', JSON.stringify(userData));
     return userData;

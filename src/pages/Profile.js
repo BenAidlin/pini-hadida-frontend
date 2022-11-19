@@ -5,6 +5,7 @@ import AdminStudentManager from "../components/AdminStudentManager";
 import UserData from "../components/UserData";
 import Slide from '@mui/material/Slide';
 import * as React from 'react';
+import ApiUtils from "../utilities/ApiUtils";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -24,22 +25,9 @@ const Profile = (props) => {
     }
     const openAdminModal = async () => {
         setManageStudents(true);
-        const usersReq = await fetch(process.env.REACT_APP_api_route + '/users', {
-            method: 'GET',
-            headers:{
-              'Content-Type' : 'application/json'
-            }
-        });
-        let users = await usersReq.json();
-        console.log(users);
-        const potentialsReq = await fetch(process.env.REACT_APP_api_route + '/users/potentials', {
-            method: 'GET',
-            headers:{
-              'Content-Type' : 'application/json'
-            }
-        });
-        let potentials = await potentialsReq.json();
-        console.log(potentials);
+        let users = await ApiUtils.getAllUsers();
+        let potentials = await ApiUtils.getAllPotentials();
+
         setAdminModalData(            
             <div style={{ backgroundColor: theme.palette.decorative.darkGrey, paddingTop: '3%'}}>            
                 <Button 
