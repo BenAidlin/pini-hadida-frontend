@@ -58,6 +58,7 @@ const AdminStudentManager = (props) => {
         setUpdateStudentDialogOpen(true);
     }
     const addStudent = async () => {        
+        alert('add student')
         /*
         const addReq = await fetch(process.env.REACT_APP_api_route + '/users/user/' 
             + userData._id + '?rank='+ddValue 

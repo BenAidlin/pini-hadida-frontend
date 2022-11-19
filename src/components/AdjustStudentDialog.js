@@ -33,7 +33,7 @@ export default function AdjustStudentDialog(props) {
     userData.joinDate : 
     format(new Date(), 'yyyy-MM-dd'
     ));
-  const [addDisabled, setAddDisabled] = useState(true);
+  const [okDisabled, setOkDisabled] = useState(true);
   const belts = ['white', 'blue', 'purple', 'brown', 'black']
   const handleClose = () => {
     onClose();
@@ -43,8 +43,8 @@ export default function AdjustStudentDialog(props) {
     setddValue(value.target.value);
   }
   useEffect(()=>{
-    if(addDisabled && joinDate && subTime && subDate && ddValue) setAddDisabled(false);
-  }, [addDisabled,joinDate,subTime,subDate,ddValue])
+    if(okDisabled && joinDate && subTime && subDate && ddValue) setOkDisabled(false);
+  }, [okDisabled,joinDate,subTime,subDate,ddValue])
   return (
     <div >
       <Dialog open={open} onClose={handleClose} dir='rtl'>
@@ -112,7 +112,7 @@ export default function AdjustStudentDialog(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>ביטול</Button>
-          <Button disabled={addDisabled} onClick={okAction}>{okButton}</Button>
+          <Button disabled={okDisabled} onClick={async ()=>{setOkDisabled(true); okAction(); handleClose();}}>{okButton}</Button>
         </DialogActions>
       </Dialog>
     </div>
