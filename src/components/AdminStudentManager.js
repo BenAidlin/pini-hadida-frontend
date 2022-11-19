@@ -4,12 +4,13 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import ManageAccountsSharpIcon from '@mui/icons-material/ManageAccountsSharp';
 import PersonAddSharpIcon from '@mui/icons-material/PersonAddSharp';
-import {  Paper, Typography, } from "@mui/material";
+import {  Button, Paper, Typography, } from "@mui/material";
 import { Box } from "@mui/system";
 import AdjustStudentDialog from "./AdjustStudentDialog";
 import ApiUtils from "../utilities/ApiUtils";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { useEffect } from "react";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const AdminStudentManager = (props) => {
     const [users, setUsers] = useState([]);
@@ -65,6 +66,20 @@ const AdminStudentManager = (props) => {
         await ApiUtils.updateStudent(id, rank, subDate, joinDate,subTime);
         await update();
     }
+    const handlePotentialDelete = async (potential) => {
+        if(window.confirm("אתה עומד למחוק משתמש, האם אתה בטוח?")){
+            setLoading(true);
+            await ApiUtils.deletePotential(potential._id);
+            await update();
+        }
+    }
+    const handleUserDelete = async (user) => {
+        if(window.confirm("אתה עומד למחוק משתמש, האם אתה בטוח?")){
+            setLoading(true);
+            await ApiUtils.deleteStudent(user._id);
+            await update();
+        }
+    }
     useEffect(()=>{
         update();        
     },[])
@@ -72,7 +87,7 @@ const AdminStudentManager = (props) => {
         <div style={{ backgroundColor: theme.palette.decorative.darkGrey, textAlign: 'center', minHeight: '100vh'}}>            
         <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={loading}            
+            open={loading} dir={'rtl'}       
             >
                 מעדכן נתונים...
             <CircularProgress color="inherit" />
@@ -88,7 +103,11 @@ const AdminStudentManager = (props) => {
                 <Box sx={{ display: 'grid', gridTemplateColumns: {
                     xs: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)'}, 
                     paddingBottom: '10vh'}} justifyContent='center' alignItems="center">
-                    {users.map(u =><Box key={u._id} onClick={()=>handleUserClick(u)} justifyContent='center'><UserData theme={theme} userData={u}></UserData></Box>)}
+                    {users.map(u =>
+                        <div>
+                        <Button onClick={()=>handleUserDelete(u)}><DeleteForeverIcon color="secondary"></DeleteForeverIcon></Button>
+                        <Box key={u._id} onClick={()=>handleUserClick(u)} justifyContent='center'>                        
+                        <UserData theme={theme} userData={u}></UserData></Box></div>)}
                 </Box>                
             </div>    
 
@@ -100,7 +119,11 @@ const AdminStudentManager = (props) => {
                 <Box sx={{ display: 'grid', gridTemplateColumns: {
                     xs: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)'}, 
                     paddingBottom: '10vh', }} justifyContent='center'  alignItems="center">
-                    {potentials.map(p => <Box key={p._id} onClick={()=>handlePotentialClick(p)} justifyContent='center'><UserData theme={theme} userData={p}></UserData></Box>)}
+                    {potentials.map(p => 
+                        <div>
+                        <Button onClick={()=>handlePotentialDelete(p)}><DeleteForeverIcon color="secondary"></DeleteForeverIcon></Button>    
+                        <Box key={p._id} onClick={()=>handlePotentialClick(p)} justifyContent='center'>
+                        <UserData theme={theme} userData={p}></UserData></Box></div>)}
                 </Box>                
             </div>
             {

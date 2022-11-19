@@ -47,7 +47,7 @@ class ApiUtils {
                 method: 'POST',
                 credentials: 'include',
                 headers:{
-                'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json'
                 }
         });        
     }
@@ -60,9 +60,29 @@ class ApiUtils {
                 method: 'PUT',
                 credentials: 'include',
                 headers:{
-                'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json'
                 }
         });  
+    }
+    static async deleteStudent(studentId){
+        await fetch(this.apiPrefix + '/users/user/'
+            + studentId, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers:{
+                'Content-Type' : 'application/json'
+            }            
+        });
+    }
+    static async deletePotential(potentialId){
+        await fetch(this.apiPrefix + '/users/potential/'
+            + potentialId, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers:{
+                'Content-Type' : 'application/json'
+            }            
+        });
     }
 
 }
