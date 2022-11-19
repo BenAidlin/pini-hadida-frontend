@@ -68,9 +68,11 @@ function App() {
   ]
   
   // methods
-  const onLogin = async (userToken) => {    
+  const onLogin = async (userToken) => { 
+    if(userToken == null) return null;   
     localStorage.setItem('loginData', userToken);
     let userData = await ApiUtils.getUserByToken(userToken);
+    if(userData == null) return null;
     setUserData(userData);
     localStorage.setItem('userData', JSON.stringify(userData));
     return userData;

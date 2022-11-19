@@ -1,88 +1,129 @@
 class ApiUtils {
     static apiPrefix = process.env.REACT_APP_api_route;
 
+    static exceptionHandle(){
+        
+        window.location.reload()
+    }
     static async getAllUsers(){
-        const usersReq = await fetch(this.apiPrefix + '/users', {
-            method: 'GET',
-            headers:{
-              'Content-Type' : 'application/json'
-            }
-        });
-        let users = await usersReq.json();
-        return users;
+        try{
+            const usersReq = await fetch(this.apiPrefix + '/users', {
+                method: 'GET',
+                headers:{
+                  'Content-Type' : 'application/json'
+                }
+            });
+            let users = await usersReq.json();
+            return users;
+    
+        }
+        catch{
+            this.exceptionHandle();
+        }
     }
 
     static async getAllPotentials(){
-        const potentialsReq = await fetch(this.apiPrefix + '/users/potentials', {
-            method: 'GET',
-            headers:{
-              'Content-Type' : 'application/json'
-            }
-        });
-        let potentials = await potentialsReq.json();
-        return potentials;
+        try{
+            const potentialsReq = await fetch(this.apiPrefix + '/users/potentials', {
+                method: 'GET',
+                headers:{
+                  'Content-Type' : 'application/json'
+                }
+            });
+            let potentials = await potentialsReq.json();
+            return potentials;    
+        }
+        catch{
+            this.exceptionHandle();
+        }
     }
 
     static async getUserByToken(userToken){
-        const res = await fetch(this.apiPrefix + '/users/google-login', {
-            method: 'POST',
-            body: JSON.stringify({
-              token: userToken
-            }),
-            credentials: 'include',
-            headers:{
-              'Content-Type' : 'application/json'
-            }
-          });
-          let userData = await res.json();
-          return userData;
+        try{
+            const res = await fetch(this.apiPrefix + '/users/google-login', {
+                method: 'POST',
+                body: JSON.stringify({
+                  token: userToken
+                }),
+                credentials: 'include',
+                headers:{
+                  'Content-Type' : 'application/json'
+                }
+              });
+              let userData = await res.json();
+              return userData;   
+        }
+        catch{
+            this.exceptionHandle();
+        }
     }
 
     static async addNewStudent(id, rank, subDate, joinDate, subTime){
-        await fetch(this.apiPrefix + '/users/user/' 
-            + id + '?rank='+rank 
-            + '&lastSubscriptionDate='+subDate
-            + '&joinDate='+joinDate
-            + '&subscriptionTime='+subTime.toString(), {
-                method: 'POST',
-                credentials: 'include',
-                headers:{
-                    'Content-Type' : 'application/json'
-                }
-        });        
+        try{
+            await fetch(this.apiPrefix + '/users/user/' 
+                + id + '?rank='+rank 
+                + '&lastSubscriptionDate='+subDate
+                + '&joinDate='+joinDate
+                + '&subscriptionTime='+subTime.toString(), {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers:{
+                        'Content-Type' : 'application/json'
+                    }
+            });            
+        }
+        catch{
+            this.exceptionHandle();   
+        }        
     }
+
     static async updateStudent(id, rank, subDate, joinDate, subTime){
-        await fetch(this.apiPrefix + '/users/user/' 
-            + id + '?rank='+rank 
-            + '&lastSubscriptionDate='+subDate
-            + '&joinDate='+joinDate
-            + '&subscriptionTime='+subTime.toString(), {
-                method: 'PUT',
-                credentials: 'include',
-                headers:{
-                    'Content-Type' : 'application/json'
-                }
-        });  
+        try{
+            await fetch(this.apiPrefix + '/users/user/' 
+                + id + '?rank='+rank 
+                + '&lastSubscriptionDate='+subDate
+                + '&joinDate='+joinDate
+                + '&subscriptionTime='+subTime.toString(), {
+                    method: 'PUT',
+                    credentials: 'include',
+                    headers:{
+                        'Content-Type' : 'application/json'
+                    }
+            });  
+        }
+        catch{
+            this.exceptionHandle();
+        }
     }
     static async deleteStudent(studentId){
-        await fetch(this.apiPrefix + '/users/user/'
-            + studentId, {
-            method: 'DELETE',
-            credentials: 'include',
-            headers:{
-                'Content-Type' : 'application/json'
-            }            
-        });
+        try{
+            await fetch(this.apiPrefix + '/users/user/'
+                + studentId, {
+                method: 'DELETE',
+                credentials: 'include',
+                headers:{
+                    'Content-Type' : 'application/json'
+                }            
+            });
+        }
+        catch{
+            this.exceptionHandle();
+        }
     }
     static async deletePotential(potentialId){
-        await fetch(this.apiPrefix + '/users/potential/'
-            + potentialId, {
-            method: 'DELETE',
-            credentials: 'include',
-            headers:{
-                'Content-Type' : 'application/json'
-            }            
-        });
+        try{
+            await fetch(this.apiPrefix + '/users/potential/'
+                + potentialId, {
+                method: 'DELETE',
+                credentials: 'include',
+                headers:{
+                    'Content-Type' : 'application/json'
+                }            
+            });
+        }
+        catch{
+            this.exceptionHandle();
+        }
     }
 
 }
