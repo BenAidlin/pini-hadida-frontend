@@ -7,6 +7,7 @@ import PersonAddSharpIcon from '@mui/icons-material/PersonAddSharp';
 import {  Paper, Typography, } from "@mui/material";
 import { Box } from "@mui/system";
 import AdjustStudentDialog from "./AdjustStudentDialog";
+import ApiUtils from "../utilities/ApiUtils";
 
 const AdminStudentManager = (props) => {
     const users = props.users;
@@ -57,14 +58,15 @@ const AdminStudentManager = (props) => {
         );
         setUpdateStudentDialogOpen(true);
     }
-    const addStudent = async () => {        
-        alert('add student');
+    const addStudent = async (id, rank, subDate, joinDate, subTime) => {        
+        await ApiUtils.addNewStudent(id, rank, subDate, joinDate, subTime);
     }
-    const updateStudent = async () => {
-        alert('update student');
+    const updateStudent = async (id, rank, subDate, joinDate, subTime) => {
+        await ApiUtils.updateStudent(id, rank, subDate, joinDate,subTime);
     }
     return (
         <div style={{ backgroundColor: theme.palette.decorative.darkGrey, textAlign: 'center', minHeight: '100vh'}}>            
+        
         <Typography variant="h5" fontFamily={theme.typography.fontFamily}
             color={theme.palette.decorative.lightBrown} dir={'rtl'}>
             <div style={{display: onSigned ? 'block' : 'none'}}>

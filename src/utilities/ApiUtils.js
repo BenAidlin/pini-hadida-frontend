@@ -1,4 +1,3 @@
-
 class ApiUtils {
     static apiPrefix = process.env.REACT_APP_api_route;
 
@@ -30,6 +29,7 @@ class ApiUtils {
             body: JSON.stringify({
               token: userToken
             }),
+            credentials: 'include',
             headers:{
               'Content-Type' : 'application/json'
             }
@@ -45,10 +45,24 @@ class ApiUtils {
             + '&joinDate='+joinDate
             + '&subscriptionTime='+subTime.toString(), {
                 method: 'POST',
+                credentials: 'include',
                 headers:{
                 'Content-Type' : 'application/json'
                 }
         });        
+    }
+    static async updateStudent(id, rank, subDate, joinDate, subTime){
+        await fetch(this.apiPrefix + '/users/user/' 
+            + id + '?rank='+rank 
+            + '&lastSubscriptionDate='+subDate
+            + '&joinDate='+joinDate
+            + '&subscriptionTime='+subTime.toString(), {
+                method: 'PUT',
+                credentials: 'include',
+                headers:{
+                'Content-Type' : 'application/json'
+                }
+        });  
     }
 
 }

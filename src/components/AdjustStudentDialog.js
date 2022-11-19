@@ -6,15 +6,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import UserData from "./UserData";
-import { MenuItem, Select, InputLabel } from '@mui/material';
+import { MenuItem, Select, InputLabel, Avatar } from '@mui/material';
 import { useState } from 'react';
 import {format} from 'date-fns';
 import { useEffect } from 'react';
 
 export default function AdjustStudentDialog(props) {
   const [open, setOpen] = React.useState(true);
-  const theme = props.theme;
+  //const theme = props.theme;
   const userData = props.userData;
   const onClose = props.onClose;
   const okButton = props.okButton;
@@ -28,7 +27,8 @@ export default function AdjustStudentDialog(props) {
     userData.lastSubscriptionDate : 
     format(new Date(), 'yyyy-MM-dd')
     );
-  const [subTime, setSubTime] = useState(3);
+  const [subTime, setSubTime] = useState( userData.subscriptionTime != null ? 
+    userData.subscriptionTime : 3);
   const [joinDate, setJoinDate] = useState( userData.joinDate != null ? 
     userData.joinDate : 
     format(new Date(), 'yyyy-MM-dd'
@@ -54,7 +54,11 @@ export default function AdjustStudentDialog(props) {
             {text}
           </DialogContentText>
           <div >
-                <UserData userData={userData} theme={theme}></UserData>
+            <Avatar
+                  alt="profilePic"
+                  src={userData.profilePic}            
+                  sx={{height: '25vh', width: '25vh', margin: 'auto'}}
+              />                
             </div>
           <TextField
             autoFocus
@@ -112,7 +116,9 @@ export default function AdjustStudentDialog(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>ביטול</Button>
-          <Button disabled={okDisabled} onClick={async ()=>{setOkDisabled(true); okAction(); handleClose();}}>{okButton}</Button>
+          <Button disabled={okDisabled} onClick={async ()=>{setOkDisabled(true); 
+            okAction(userData._id, ddValue, subDate, joinDate, subTime); 
+            handleClose();}}>{okButton}</Button>
         </DialogActions>
       </Dialog>
     </div>
